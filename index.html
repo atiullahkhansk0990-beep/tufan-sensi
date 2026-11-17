@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f4f2ff">
+  <meta name="description" content="TUFAN SENSI by GPT — Free Fire sensitivity dashboard, device setup and gamer tools.">
+  <title>TUFAN SENSI by GPT | Premium Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Orbitron:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="#" aria-label="TUFAN SENSI home">
+      <span class="brand-mark">T</span><span class="brand-copy"><b>TUFAN <i>SENSI</i></b><small>POWERED BY GPT</small></span>
+    </a>
+    <div class="side-label">WORKSPACE</div>
+    <nav class="nav">
+      <button class="nav-link active" data-page="dashboard"><span>◈</span> Dashboard</button>
+      <button class="nav-link" data-page="generator"><span>⌁</span> Sensi Generator</button>
+      <button class="nav-link" data-page="saved"><span>♡</span> Saved Setups <em id="savedCount">0</em></button>
+      <button class="nav-link" data-page="nickname"><span>✦</span> Nickname Studio</button>
+    </nav>
+    <div class="side-label tools-label">PLAYER TOOLS</div>
+    <nav class="nav">
+      <button class="nav-link" data-page="device"><span>▣</span> Device Profile</button>
+      <button class="nav-link" data-page="guide"><span>◎</span> Aim Guide</button>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="sidebar-promo"><div class="promo-orb">✧</div><b>LEVEL UP YOUR SETUP</b><p>Fine-tune your settings. Find what feels right.</p><button data-page="generator">Open generator ↗</button></div>
+      <div class="profile"><div class="avatar">⚡</div><div><b>TUFAN PLAYER</b><small>Community edition</small></div><span class="online-dot"></span></div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="top-left"><button class="mobile-menu" id="menuBtn">☰</button><div><div class="crumb">WORKSPACE <span>/</span> <b id="crumb">DASHBOARD</b></div><div class="top-title">Welcome back, <strong>Player</strong> <span class="wave">✦</span></div></div></div>
+      <div class="top-actions"><div class="status"><span></span> SYSTEM READY</div><button class="icon-btn" id="themeBtn" title="Toggle theme">☼</button><div class="top-avatar">T</div></div>
+    </header>
+
+    <section class="page active-page" id="page-dashboard">
+      <div class="hero">
+        <div class="hero-content"><div class="eyebrow"><span class="spark">✦</span> YOUR PERSONAL GAMING LAB</div>
+          <h1 class="hero-title">PLAY SHARP.<br><span>STAY TUFAN.</span></h1>
+          <p>Build a sensitivity setup around your device and play style. Your game, your control, your rules.</p>
+          <div class="hero-actions"><button class="btn btn-light" data-page="generator">Generate my sensi <span>↗</span></button><button class="btn btn-glass" data-page="guide">Explore aim guide</button></div>
+        </div>
+        <div class="hero-art" aria-hidden="true"><div class="ring ring-one"></div><div class="ring ring-two"></div><div class="hero-chip chip-a">PRECISION <b>↑</b></div><div class="hero-chip chip-b">CONTROL <b>✦</b></div><div class="hero-emblem">T<span>⚡</span></div><div class="hero-caption">TUFAN<br><b>MODE</b></div></div>
+        <div class="hero-glow"></div>
+      </div>
+      <div class="section-head"><div><div class="eyebrow muted">QUICK ACCESS</div><h2>Your control center</h2></div><span class="live-tag"><i></i> ALL TOOLS READY</span></div>
+      <div class="quick-grid">
+        <button class="quick-card q-purple" data-page="generator"><span class="quick-icon">⌁</span><span class="quick-meta">PERSONALIZED TOOL</span><b>Sensi Generator</b><small>Find your starter sensitivity</small><span class="quick-arrow">↗</span></button>
+        <button class="quick-card q-blue" data-page="device"><span class="quick-icon">▣</span><span class="quick-meta">DEVICE SETTINGS</span><b>Device Profile</b><small>Set your phone details</small><span class="quick-arrow">↗</span></button>
+        <button class="quick-card q-pink" data-page="nickname"><span class="quick-icon">✦</span><span class="quick-meta">GAMER IDENTITY</span><b>Nickname Studio</b><small>Style your in-game name</small><span class="quick-arrow">↗</span></button>
+        <button class="quick-card q-green" data-page="saved"><span class="quick-icon">♡</span><span class="quick-meta">YOUR COLLECTION</span><b>Saved Setups</b><small>Keep your favourite builds</small><span class="quick-arrow">↗</span></button>
+      </div>
+      <div class="bottom-grid">
+        <div class="panel recent-panel"><div class="panel-head"><div><div class="eyebrow muted">YOUR HISTORY</div><h3>Recent setups</h3></div><button class="text-btn" data-page="saved">View all ↗</button></div><div id="recentList" class="empty-state"><div class="empty-icon">⌁</div><b>No setups yet</b><span>Your generated settings will show up here.</span><button class="btn btn-primary" data-page="generator">Create first setup</button></div></div>
+        <div class="panel tip-panel"><div class="tip-icon">✧</div><div class="eyebrow muted">TUFAN TIP OF THE DAY</div><h3>Consistency beats<br><span>random changes.</span></h3><p>Test one setting at a time. Give your fingers time to adjust before changing everything again.</p><div class="tip-foot"><span>PLAYER MINDSET</span><b>01 / 06</b></div></div>
+      </div>
+      <footer>© 2026 TUFAN SENSI by GPT <span>UNOFFICIAL COMMUNITY TOOL · NOT AFFILIATED WITH GARENA</span></footer>
+    </section>
+
+    <section class="page" id="page-generator">
+      <div class="page-heading"><div><div class="eyebrow muted">BUILD YOUR CONTROL</div><h1>Sensi <span>Generator</span></h1><p>Choose your device profile and play style to create a practice-ready starting point.</p></div><div class="heading-icon">⌁</div></div>
+      <div class="generator-layout">
+        <div class="panel form-panel">
+          <div class="panel-head"><div><h3>Player & device profile</h3><p class="panel-sub">A few details help shape your suggested setup.</p></div><span class="step-badge">STEP 01</span></div>
+          <div class="form-grid">
+            <label class="field"><span>Phone brand</span><select id="brand"><option>Redmi / Xiaomi</option><option>Samsung</option><option>Realme</option><option>OPPO</option><option>Vivo</option><option>Infinix</option><option>iPhone</option><option>Other</option></select></label>
+            <label class="field"><span>Phone model</span><input id="model" value="Redmi 9A" placeholder="e.g. Redmi 9A"></label>
+            <label class="field"><span>RAM</span><select id="ram"><option value="2">2 GB</option><option value="3" selected>3 GB</option><option value="4">4 GB</option><option value="6">6 GB</option><option value="8">8 GB</option><option value="12">12 GB+</option></select></label>
+            <label class="field"><span>Device performance</span><select id="tier"><option value="low">Entry level</option><option value="mid" selected>Mid range</option><option value="high">High performance</option></select></label>
+            <label class="field"><span>Play style</span><select id="style"><option value="balanced">Balanced player</option><option value="rush">Rusher / fast drag</option><option value="precise">Precision aim</option><option value="sniper">Sniper / long range</option></select></label>
+            <label class="field"><span>Touch response</span><select id="touch"><option value="normal">Normal</option><option value="slow">Feels slow</option><option value="fast">Feels too fast</option></select></label>
+            <label class="field"><span>Screen size</span><select id="screen"><option value="small">Compact</option><option value="medium" selected>Medium</option><option value="large">Large</option></select></label>
+            <label class="field"><span>Generator priority</span><select id="priority"><option value="balanced">Balanced setup</option><option value="headshot">Headshot practice</option><option value="control">Stable control</option></select></label>
+          </div>
+          <div class="form-note"><span>ⓘ</span> Suggestions are estimates for practice. They are not pulled from the original app's private server.</div>
+          <button class="btn btn-primary btn-wide" id="generateBtn">✦ Generate my sensitivity <span>↗</span></button>
+        </div>
+        <div class="panel preview-panel"><div class="preview-top"><div class="eyebrow muted">LIVE PREVIEW</div><span class="preview-dot">● READY</span></div><div class="preview-device"><div class="phone"><div class="phone-camera"></div><div class="phone-screen"><div class="screen-mark">T</div><div class="screen-line"></div><div class="screen-line short"></div><div class="screen-target">◎</div><div class="screen-foot">TUFAN SENSI</div></div></div><div class="preview-caption"><b id="previewModel">Redmi 9A</b><span id="previewMeta">3 GB RAM · Balanced player</span></div></div><div class="preview-bottom"><span>PERSONAL SETUP</span><b>01 <i>/</i> 01</b></div></div>
+      </div>
+      <div class="panel result-panel hidden" id="resultPanel"><div class="panel-head"><div><div class="eyebrow muted">YOUR GENERATED PROFILE</div><h3 id="resultTitle">Your starter setup</h3><p class="panel-sub" id="resultSub"></p></div><span class="result-pill">✦ GENERATED</span></div><div class="result-grid" id="resultGrid"></div><div class="result-actions"><button class="btn btn-primary" id="copyBtn">Copy all settings</button><button class="btn btn-outline" id="saveBtn">♡ Save setup</button></div><p class="disclaimer">Use these as starting suggestions only. Adjust gradually in Training Ground; results vary by device, game version and personal preference.</p></div>
+    </section>
+
+    <section class="page" id="page-saved"><div class="page-heading"><div><div class="eyebrow muted">YOUR PERSONAL COLLECTION</div><h1>Saved <span>Setups</span></h1><p>All your favourite profiles, saved in this browser on this device.</p></div><div class="heading-icon">♡</div></div><div class="panel"><div class="panel-head"><div><h3>Your setup library</h3><p class="panel-sub">Stored locally in your browser.</p></div><span class="step-badge" id="libraryCount">0 SAVED</span></div><div id="savedLibrary" class="library-grid"></div></div></section>
+
+    <section class="page" id="page-nickname"><div class="page-heading"><div><div class="eyebrow muted">CREATE YOUR GAMER IDENTITY</div><h1>Nickname <span>Studio</span></h1><p>Make your in-game name stand out with clean symbol styles.</p></div><div class="heading-icon">✦</div></div><div class="panel nickname-panel"><div class="nickname-preview"><div class="eyebrow">YOUR NAME, YOUR STYLE</div><div id="nickPreview" class="nick-3d">TUFAN</div><span>GAMER TAG PREVIEW</span></div><div class="nickname-controls"><label class="field"><span>Your nickname</span><input id="nickInput" maxlength="16" placeholder="Enter your name" value="TUFAN"></label><label class="field"><span>Font style</span><select id="nickStyle"><option value="royal">Royal frame</option><option value="shadow">Shadow mode</option><option value="star">Star burst</option><option value="elite">Elite pro</option><option value="clean">Clean minimal</option><option value="gothic">Gothic bold</option></select></label><button class="btn btn-primary btn-wide" id="makeNick">Create nickname ✦</button><div class="generated-nick" id="nickOutput">꧁༒ TUFAN ༒꧂</div><button class="btn btn-outline btn-wide" id="copyNick">Copy nickname</button></div></div></section>
+
+    <section class="page" id="page-device"><div class="page-heading"><div><div class="eyebrow muted">DEVICE INFORMATION</div><h1>Device <span>Profile</span></h1><p>Keep your current phone details handy for your next sensitivity generation.</p></div><div class="heading-icon">▣</div></div><div class="panel device-panel"><div class="device-icon">▣</div><div><div class="eyebrow muted">CURRENT DEVICE PROFILE</div><h2 id="deviceName">Redmi 9A</h2><p id="deviceDetails">Redmi / Xiaomi · 3 GB RAM · Mid range</p><button class="btn btn-primary" data-page="generator">Edit device details ↗</button></div></div></section>
+
+    <section class="page" id="page-guide"><div class="page-heading"><div><div class="eyebrow muted">PRACTICE SMARTER</div><h1>Aim <span>Guide</span></h1><p>Simple habits to help you test settings and build consistent control.</p></div><div class="heading-icon">◎</div></div><div class="guide-grid"><article class="panel guide-card"><div class="guide-num">01</div><div class="guide-symbol">⌁</div><h3>Start with a baseline</h3><p>Use one generated profile and test it before making any changes.</p></article><article class="panel guide-card"><div class="guide-num">02</div><div class="guide-symbol">◎</div><h3>Change one value</h3><p>Adjust only one scope or control at a time so you can notice the difference.</p></article><article class="panel guide-card"><div class="guide-num">03</div><div class="guide-symbol">◷</div><h3>Give it practice time</h3><p>Repeat the same drills and avoid changing settings after every match.</p></article><article class="panel guide-card"><div class="guide-num">04</div><div class="guide-symbol">♡</div><h3>Save what feels right</h3><p>Keep a copy of settings you like so you can compare them later.</p></article></div><div class="guide-disclaimer">TUFAN SENSI by GPT is an independent fan-made tool. It does not modify game files or guarantee headshots, rank gains or wins.</div></section>
+  </main>
+</div>
+<div class="toast" id="toast"></div>
+<script src="app.js"></script>
+</body></html>
