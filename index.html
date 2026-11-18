@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZX TUFAN & SQUAD | Ultimate Esports Hub V4.6</title>
+    <title>ZX TUFAN PRO SENSI | Ultimate Esports Hub V5.0</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Cinzel:wght@700;900&family=Rajdhani:wght@500;700&family=Syncopate:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -17,7 +17,7 @@
         <header class="hub-header">
             <div class="logo-box">
                 <span class="neon-badge">ZX TUFAN SQUAD</span>
-                <h1>FF SENSITIVITY PRO <span class="gemini-tag">V4.6</span></h1>
+                <h1>ZX TUFAN PRO SENSI <span class="gemini-tag">V5.0</span></h1>
             </div>
             <div class="status-pill">
                 <span class="pulse-dot"></span> 130+ DEVICES
@@ -25,10 +25,10 @@
         </header>
 
         <!-- Navigation Menu -->
-        <nav class="hub-nav">
+        <nav class="hub-nav" style="grid-template-columns: repeat(3, 1fr);">
             <button class="nav-btn active" onclick="switchTab('dashboard', this)">🛡️ Dashboard</button>
-            <button class="nav-btn" onclick="switchTab('termux', this)">💻 Device & Termux</button>
-            <button class="nav-btn" onclick="switchTab('sensimaker', this)">🎯 Sensi Maker</button>
+            <button class="nav-btn" onclick="switchTab('tufansensi', this)">🎯 ZX TUFAN SENSI</button>
+            <button class="nav-btn" onclick="switchTab('sensimaker', this)">⚡ Sensi Maker</button>
             <button class="nav-btn" onclick="switchTab('hudscanner', this)">📸 HUD Analyzer</button>
             <button class="nav-btn" onclick="switchTab('nicknames', this)">🔥 10K Nicknames</button>
         </nav>
@@ -65,92 +65,37 @@
             </div>
         </section>
 
-        <!-- TAB 2: REAL BROWSER PROFILER + REAL TERMUX PYTHON SCRIPT -->
-        <section id="termux" class="tab-content">
-            <div class="panel-box terminal-panel">
-                <h3>💻 Device Profiler & Real Termux Script</h3>
-                <p>Browser se real screen/CPU metrics inspect karein ya apne Android Termux mein asli hardware scan ke liye <code>main.py</code> copy karein.</p>
-                
-                <div class="terminal-window">
-                    <div class="term-header">
-                        <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
-                        <span class="term-title">bash - web-profiler & termux@zxtufan</span>
-                    </div>
-                    <div class="term-body" id="termOutput">
-                        <p class="term-line">~ $ python main.py</p>
-                        <p class="term-line">[INFO] Browser Sandbox Note: Web browsers expose Screen Resolution, DPR, Logical CPU Cores, and approximate Device Memory.</p>
-                        <p class="term-line">[READY] Click 'RUN WEB DEVICE SCAN' below, or copy the real Termux Python script for full /proc/cpuinfo & getprop scan.</p>
-                    </div>
-                    <div class="term-input-row">
-                        <span class="prompt">~ $</span>
-                        <input type="text" id="termCmdInput" placeholder="python main.py" onkeydown="if(event.key==='Enter') runTermuxScan()">
-                    </div>
+        <!-- TAB 2: ZX TUFAN SENSI (Exact User Sensitivity Setup & Screenshot) -->
+        <section id="tufansensi" class="tab-content">
+            <div class="panel-box">
+                <h3>🎯 ZX TUFAN OFFICIAL PRO SENSI SETUP</h3>
+                <p>Yeh aapki original personal sensitivity setting hai jo aap in-match use karte hain:</p>
+
+                <div style="text-align:center; margin-bottom:15px; border:2px solid var(--neon-cyan); border-radius:12px; overflow:hidden; background:#020205; padding:8px;">
+                    <img src="zxtufansensi.jpg" alt="ZX TUFAN Sensi Setup" style="max-width:100%; border-radius:8px;" onerror="this.src='zxtufan.jpg'">
+                    <p style="font-size:0.8rem; color:var(--neon-cyan); margin-top:6px;">📸 Live In-Match Sensitivity Configuration</p>
                 </div>
 
-                <div style="display:flex; gap:10px; flex-wrap:wrap;">
-                    <button class="cyber-btn btn-3d" style="flex:1; min-width:200px;" onclick="runTermuxScan()">🚀 RUN WEB DEVICE SCAN</button>
-                    <button class="cyber-btn btn-3d" style="flex:1; min-width:200px; background:linear-gradient(135deg,#00b894,#0984e3);" onclick="toggleTermuxCode()">📋 VIEW REAL TERMUX main.py</button>
+                <div class="res-grid" style="grid-template-columns: repeat(2, 1fr); margin-bottom:15px;">
+                    <div class="res-card"><span>General</span><strong>107</strong></div>
+                    <div class="res-card"><span>Red Dot</span><strong>101</strong></div>
+                    <div class="res-card"><span>2x Scope</span><strong>89</strong></div>
+                    <div class="res-card"><span>4x Scope</span><strong>86</strong></div>
+                    <div class="res-card"><span>Sniper Scope</span><strong>70</strong></div>
+                    <div class="res-card accent"><span>Free Camera Button</span><strong>85</strong></div>
                 </div>
 
-                <div id="realPythonBox" class="result-box hidden" style="margin-top:15px;">
-                    <div class="fire-tip" style="margin-bottom:10px; background:rgba(0,243,255,0.1); border-color:var(--neon-cyan); color:var(--neon-cyan);">
-                        🐍 Real Termux Hardware Script (Save as <code>main.py</code> in Termux & run <code>python main.py</code>)
-                    </div>
-                    <pre id="pythonCodeBlock" style="background:#020205; color:#00ff66; padding:12px; border-radius:8px; font-size:0.78rem; overflow-x:auto; border:1px solid #1a3d1a;">import os, subprocess
-
-def get_prop(prop):
-    try:
-        return subprocess.check_output(['getprop', prop]).decode().strip()
-    except Exception:
-        return "Unknown"
-
-model = get_prop('ro.product.model') or "Android Device"
-brand = get_prop('ro.product.brand').upper()
-android_ver = get_prop('ro.build.version.release')
-density = get_prop('ro.sf.lcd_density') or "440"
-
-mem_kb = 0
-try:
-    with open('/proc/meminfo') as f:
-        for line in f:
-            if 'MemTotal' in line:
-                mem_kb = int(line.split()[1])
-                break
-except Exception:
-    pass
-
-ram_gb = round(mem_kb / (1024 * 1024), 1) if mem_kb else 4.0
-safe_dpi = 420 if ram_gb <= 4.0 else (475 if ram_gb <= 6.0 else 540)
-
-print(f"=== ZX TUFAN REAL HARDWARE REPORT ===")
-print(f"Device: {brand} {model} (Android {android_ver})")
-print(f"Total RAM: {ram_gb} GB | Native Density: {density}")
-print(f"Recommended Safe DPI: {safe_dpi} (Low-end capped < 450)")
-print(f"Sensi -> General: {95 if ram_gb<=4 else 98} | Red Dot: {92 if ram_gb<=4 else 95}")</pre>
-                    <button class="cyber-btn btn-3d" style="margin-top:10px;" onclick="copyPythonScript(this)">📄 COPY main.py CODE</button>
-                </div>
-
-                <div id="termResult" class="result-box hidden" style="margin-top:20px;">
-                    <div id="termResultHeader" class="fire-tip" style="margin-bottom:12px; background:rgba(0,255,102,0.1); border-color:#00ff66; color:#00ff66;">
-                        ⚡ BROWSER HARDWARE METRICS DETECTED & SENSI CALIBRATED!
-                    </div>
-                    <div class="res-grid">
-                        <div class="res-card"><span>General</span><strong id="tGen">97</strong></div>
-                        <div class="res-card"><span>Red Dot</span><strong id="tRed">94</strong></div>
-                        <div class="res-card"><span>2X Scope</span><strong id="t2x">91</strong></div>
-                        <div class="res-card"><span>4X Scope</span><strong id="t4x">88</strong></div>
-                        <div class="res-card"><span>AWM Scope</span><strong id="tAwm">72</strong></div>
-                        <div class="res-card accent"><span>Smart DPI</span><strong id="tDpi">430</strong></div>
-                    </div>
+                <div class="fire-tip" style="background:rgba(0,243,255,0.08); border-color:var(--neon-cyan); color:var(--neon-cyan);">
+                    ⚡ PRO TIP: Ye high-acceleration configuration fast one-taps aur smooth drag movement ke liye calibrate ki gayi hai!
                 </div>
             </div>
         </section>
 
-        <!-- TAB 3: SENSI MAKER (EXACT FFSENSITIVITY.COM LIVE SEARCH UI) -->
+        <!-- TAB 3: SENSI MAKER -->
         <section id="sensimaker" class="tab-content">
             <div class="panel-box">
-                <h3>🔍 SEARCH YOUR DEVICE</h3>
-                <p>Jaise ffsensitivity.com par hota hai, yahan apna brand ya model type karein (jaise "Redmi", "iPhone", "Lava", "ZTE", "iQOO", "Nubia", "Micromax") aur instant result chunein:</p>
+                <h3>🔍 SEARCH YOUR DEVICE & SENSI MAKER</h3>
+                <p>Apna brand ya model type karein (jaise "Redmi", "iPhone", "Lava", "ZTE", "iQOO", "Nubia", "Micromax"):</p>
                 
                 <div class="search-device-container">
                     <div class="search-input-wrapper">
@@ -159,9 +104,7 @@ print(f"Sensi -> General: {95 if ram_gb<=4 else 98} | Red Dot: {92 if ram_gb<=4 
                         <button class="clear-search-btn" onclick="clearSearchInput()">✕</button>
                     </div>
                     
-                    <div id="deviceSuggestionsList" class="suggestions-dropdown hidden">
-                        <!-- Dynamically populated via JS -->
-                    </div>
+                    <div id="deviceSuggestionsList" class="suggestions-dropdown hidden"></div>
                 </div>
 
                 <div class="selected-device-banner" id="selectedDeviceBanner">
@@ -191,7 +134,7 @@ print(f"Sensi -> General: {95 if ram_gb<=4 else 98} | Red Dot: {92 if ram_gb<=4 
                     </div>
                 </div>
 
-                <button class="cyber-btn btn-3d" onclick="generateCustomSensi()">⚡ GENERATE SENSIFF PRO CONFIG</button>
+                <button class="cyber-btn btn-3d" onclick="generateCustomSensi()">⚡ GENERATE ZX TUFAN PRO CONFIG</button>
 
                 <div id="makerResult" class="result-box hidden">
                     <div id="makerDeviceTitle" class="fire-tip" style="margin-bottom:12px;">Config Generated Successfully!</div>
@@ -206,13 +149,8 @@ print(f"Sensi -> General: {95 if ram_gb<=4 else 98} | Red Dot: {92 if ram_gb<=4 
                     </div>
 
                     <div class="res-grid" style="grid-template-columns: repeat(2, 1fr); margin-top:10px;">
-                        <div class="res-card accent"><span id="mDpiLabel">Safe DPI (<450)</span><strong id="mDpi">430</strong></div>
+                        <div class="res-card accent"><span id="mDpiLabel">Safe DPI (&lt;450)</span><strong id="mDpi">430</strong></div>
                         <div class="res-card accent"><span>Fire Button Size</span><strong id="mFireBtn">46%</strong></div>
-                    </div>
-
-                    <div style="background:rgba(0,243,255,0.06); border:1px solid rgba(0,243,255,0.3); border-radius:8px; padding:12px; margin-top:12px;">
-                        <div style="font-family:'Orbitron',sans-serif; font-size:0.85rem; color:var(--neon-cyan); margin-bottom:4px;">🎯 WEAPON & DRAG TIPS:</div>
-                        <p id="makerNote" style="font-size:0.85rem; color:var(--text-dim); margin:0; line-height:1.4;"></p>
                     </div>
                 </div>
             </div>
@@ -226,7 +164,7 @@ print(f"Sensi -> General: {95 if ram_gb<=4 else 98} | Red Dot: {92 if ram_gb<=4 
                 
                 <div class="input-grid">
                     <div class="input-group">
-                        <label>1. Select HUD Screenshot from Gallery:</label>
+                        <label>1. Select HUD Screenshot:</label>
                         <label class="file-upload-btn btn-3d" style="padding:11px;">
                             📁 Choose Screenshot
                             <input type="file" id="hudFileInput" accept="image/*" onchange="previewHudImage(event)" style="display:none;">
@@ -253,9 +191,7 @@ print(f"Sensi -> General: {95 if ram_gb<=4 else 98} | Red Dot: {92 if ram_gb<=4 
                 <button class="cyber-btn btn-3d" onclick="analyzeHudScreenshot()">🔍 CALCULATE HUD DRAG & SENSI</button>
 
                 <div id="hudResultBox" class="result-box hidden" style="margin-top:15px;">
-                    <div id="hudAnalysisSummary" class="fire-tip" style="margin-bottom:12px; background:rgba(0,243,255,0.1); border-color:var(--neon-cyan); color:var(--neon-cyan);">
-                        🎯 HUD SCREEN GEOMETRY & GRIP CALIBRATED!
-                    </div>
+                    <div class="fire-tip" style="margin-bottom:12px;">🎯 HUD SCREEN GEOMETRY & GRIP CALIBRATED!</div>
                     <div class="res-grid">
                         <div class="res-card"><span>General</span><strong id="hGen">98</strong></div>
                         <div class="res-card"><span>Red Dot</span><strong id="hRed">95</strong></div>
@@ -268,28 +204,28 @@ print(f"Sensi -> General: {95 if ram_gb<=4 else 98} | Red Dot: {92 if ram_gb<=4 
             </div>
         </section>
 
-        <!-- TAB 5: 10,000+ NICKNAMES GENERATOR -->
+        <!-- TAB 5: 10K NICKNAMES -->
         <section id="nicknames" class="tab-content">
             <div class="panel-box">
                 <h3>🔥 10,000+ Unique Nickname Generator</h3>
-                <p>Har naam ke 10,000+ unique 3D esports typography combinations generate aur ek click par copy karein.</p>
+                <p>Har naam ke unique 3D esports typography combinations generate aur ek click par copy karein.</p>
                 
                 <div class="input-group">
                     <input type="text" id="baseNameInput" placeholder="Enter name (e.g. TUFAN)" value="TUFAN" oninput="generateNicknames()">
                 </div>
                 
                 <div style="display:flex; gap:10px; flex-wrap:wrap;">
-                    <button class="cyber-btn btn-3d" style="flex:1; min-width:160px;" onclick="generateNicknames()">✨ GENERATE NEW STYLES</button>
-                    <button class="cyber-btn btn-3d" style="flex:1; min-width:160px; background:linear-gradient(135deg,#ff007f,#7b00ff);" onclick="loadMoreNicknames()">➕ LOAD MORE (10K+)</button>
+                    <button class="cyber-btn btn-3d" style="flex:1;" onclick="generateNicknames()">✨ GENERATE NEW STYLES</button>
+                    <button class="cyber-btn btn-3d" style="flex:1; background:linear-gradient(135deg,#ff007f,#7b00ff);" onclick="loadMoreNicknames()">➕ LOAD MORE</button>
                 </div>
 
-                <p id="nickCounterText" style="font-size:0.8rem; color:var(--neon-cyan); margin-top:10px; margin-bottom:4px;">Showing 30 of 10,000+ unique combinations</p>
+                <p id="nickCounterText" style="font-size:0.8rem; color:var(--neon-cyan); margin-top:10px; margin-bottom:4px;">Showing 30 combinations</p>
                 <div class="nick-results-container" id="nickResults"></div>
             </div>
         </section>
 
         <footer class="hub-footer">
-            <p>Designed for ZX TUFAN Squad | FF Sensitivity Pro V4.6</p>
+            <p>Designed for ZX TUFAN Squad | ZX TUFAN PRO SENSI V5.0</p>
         </footer>
     </div>
 
