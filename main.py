@@ -1,5 +1,7 @@
 import json
+import os
 import platform
+import re
 import subprocess
 
 def prop(name):
@@ -8,12 +10,22 @@ def prop(name):
     except Exception:
         return ""
 
-def total_ram_mb():
+def read_meminfo():
     try:
-        with open("/proc/meminfo", encoding="utf-8") as f:
+        with open("/proc/meminfo", "r", encoding="utf-8") as f:
             for line in f:
                 if line.startswith("MemTotal:"):
                     return round(int(line.split()[1]) / 1024)
+    except Exception:
+        pass
+    return None
+
+def get_refresh_rate():
+    try:
+        disp = subprocess.check_output(["dumpsys", "display"], text=True, stderr=subprocess.DEVNULL)
+        rates = [float(x) for x in re.findall(r"refreshRate[=: ]+(\d+(?:\.\d+)?)", disp)]
+        if rates:
+            return round(max(rates))
     except Exception:
         pass
     return None
@@ -23,14 +35,14 @@ report = {
     "model": prop("ro.product.model") or platform.node() or "Unknown",
     "android_version": prop("ro.build.version.release") or "Unknown",
     "resolution": "Not available",
-    "refresh_rate_hz": None,
-    "ram_total_mb": total_ram_mb(),
-    "scanner_version": "1.0",
+    "refresh_rate_hz": get_refresh_rate(),
+    "ram_total_mb": read_meminfo(),
+    "scanner_version": "8.0",
     "note": "Basic device properties only; no personal files or account data accessed."
 }
 try:
-    output = subprocess.check_output(["wm", "size"], text=True, stderr=subprocess.DEVNULL)
-    report["resolution"] = output.strip().splitlines()[-1].replace("Physical size: ", "").replace("Override size: ", "")
+    wm = subprocess.check_output(["wm", "size"], text=True, stderr=subprocess.DEVNULL)
+    report["resolution"] = wm.strip().splitlines()[-1].replace("Physical size: ", "").replace("Override size: ", "")
 except Exception:
     pass
 
