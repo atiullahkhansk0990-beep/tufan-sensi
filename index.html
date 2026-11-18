@@ -1,240 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZX TUFAN PRO SENSI | Ultimate Esports Hub V6.0</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Cinzel:wght@700;900&family=Rajdhani:wght@500;700&family=Syncopate:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#05030a">
+  <title>ZX TUFAN PRO SENSI | Ultimate Esports Hub V7.0</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Cinzel:wght@700;900&family=Rajdhani:wght@500;700&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="cyber-bg"></div>
-    <div class="glow-orb orb-1"></div>
-    <div class="glow-orb orb-2"></div>
+  <div class="cyber-bg"></div><div class="glow-orb orb-1"></div><div class="glow-orb orb-2"></div>
+  <main class="container">
+    <header class="hub-header">
+      <div class="logo-box"><span class="neon-badge">ZX TUFAN SQUAD</span><h1>ZX TUFAN PRO SENSI <span class="gemini-tag">V7.0</span></h1></div>
+      <div class="header-status"><div class="status-pill"><span class="pulse-dot"></span> 200+ DEVICES</div><div class="live-counter-badge" id="liveVisitorBadge">👥 Demo visitor counter: <strong id="visitorCount">—</strong></div></div>
+    </header>
 
-    <div class="container">
-        <!-- Header -->
-        <header class="hub-header">
-            <div class="logo-box">
-                <span class="neon-badge">ZX TUFAN SQUAD</span>
-                <h1>ZX TUFAN PRO SENSI <span class="gemini-tag">V6.0</span></h1>
-            </div>
-            <div style="display:flex; flex-direction:column; align-items:flex-end; gap:3px;">
-                <div class="status-pill">
-                    <span class="pulse-dot"></span> 180+ DEVICES
-                </div>
-                <div class="live-counter-badge" id="liveVisitorBadge">
-                    🔥 Live Visitors: <strong id="visitorCount">1,428</strong>
-                </div>
-            </div>
-        </header>
+    <nav class="hub-nav">
+      <button class="nav-btn active" onclick="switchTab('dashboard', this)">🛡️ Dashboard</button>
+      <button class="nav-btn" onclick="switchTab('tufansensi', this)">🎯 ZX TUFAN SENSI</button>
+      <button class="nav-btn" onclick="switchTab('sensimaker', this)">⚡ Sensi Maker</button>
+      <button class="nav-btn" onclick="switchTab('hudscanner', this)">📸 HUD Analyzer</button>
+      <button class="nav-btn" onclick="switchTab('nicknames', this)">🔥 Nicknames</button>
+      <button class="nav-btn" onclick="switchTab('termscan', this)">📱 TERMUX SCAN</button>
+    </nav>
 
-        <!-- Navigation Menu -->
-        <nav class="hub-nav" style="grid-template-columns: repeat(3, 1fr);">
-            <button class="nav-btn active" onclick="switchTab('dashboard', this)">🛡️ Dashboard</button>
-            <button class="nav-btn" onclick="switchTab('tufansensi', this)">🎯 ZX TUFAN SENSI</button>
-            <button class="nav-btn" onclick="switchTab('sensimaker', this)">⚡ Sensi Maker</button>
-            <button class="nav-btn" onclick="switchTab('hudscanner', this)">📸 HUD Analyzer</button>
-            <button class="nav-btn" onclick="switchTab('nicknames', this)">🔥 10K Nicknames</button>
-        </nav>
+    <section id="dashboard" class="tab-content active">
+      <div class="panel-box">
+        <h3>👥 Squad Member Profile Switcher</h3><p>Squad members ki profile aur banner switch karein.</p>
+        <div class="button-row">
+          <button class="cyber-btn btn-3d" onclick="switchProfile('zxtufan')">⚡ ZX TUFAN</button>
+          <button class="cyber-btn btn-3d red" onclick="switchProfile('ritesh')">🔥 RITESH</button>
+          <button class="cyber-btn btn-3d orange" onclick="switchProfile('faisal')">🛡️ FAISAL</button>
+          <button class="cyber-btn btn-3d green" onclick="switchProfile('squad')">👥 FULL SQUAD</button>
+        </div>
+        <div class="profile-panel" id="profileCardBox">
+          <div class="avatar-frame"><img id="userAvatar" src="zxtufan.jpg" alt="ZX TUFAN" onerror="handleAvatarFallback(this)"></div>
+          <div class="profile-details"><span id="profileBadge" class="legend-badge">LEGEND NEVER DIES</span>
+            <h2 id="profileName">ZX ★ TUFAN <span class="v-badge">✔</span></h2>
+            <p id="profileQuote" class="quote">"Main Agar Apni Jawani Ke Suna Du Kisse, Ye Jo Launde Hain, Mere Paon Dabane Lag Jaayein !!!"</p>
+            <div class="stats-row" id="profileStats"><div class="stat-pill">🔥 BR Heroic</div><div class="stat-pill">🛡️ UID: 2910340190</div><div class="stat-pill">👍 6577 Likes</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <!-- TAB 1: DASHBOARD -->
-        <section id="dashboard" class="tab-content active">
-            <div class="panel-box">
-                <h3>👥 Squad Member Profile Switcher</h3>
-                <p>Apni squad ke members (ZX TUFAN, RITESH THARU, FAISAL) ki profile aur squad banner switch karein:</p>
-                
-                <div style="display:flex; gap:8px; margin-bottom:15px; flex-wrap:wrap;">
-                    <button class="cyber-btn btn-3d" style="flex:1; min-width:110px;" onclick="switchProfile('zxtufan')">⚡ ZX TUFAN</button>
-                    <button class="cyber-btn btn-3d" style="flex:1; min-width:110px; background:linear-gradient(135deg,#ff416c,#ff4b2b);" onclick="switchProfile('ritesh')">🔥 RITESH</button>
-                    <button class="cyber-btn btn-3d" style="flex:1; min-width:110px; background:linear-gradient(135deg,#f7b733,#fc4a1a);" onclick="switchProfile('faisal')">🛡️ FAISAL</button>
-                    <button class="cyber-btn btn-3d" style="flex:1; min-width:110px; background:linear-gradient(135deg,#00b09b,#96c93d);" onclick="switchProfile('squad')">👥 FULL SQUAD</button>
-                </div>
+    <section id="tufansensi" class="tab-content"><div class="panel-box">
+      <h3>🎯 ZX TUFAN OFFICIAL PRO SENSI SETUP</h3><p>Aapki saved sensitivity values.</p>
+      <div class="sensi-image"><img src="zxtufansensi.jpg" alt="ZX TUFAN Sensi Setup" onerror="this.style.display='none'"><p>📸 ZX TUFAN sensitivity setup</p></div>
+      <div class="res-grid two">
+        <div class="res-card"><span>General</span><strong>107</strong></div><div class="res-card"><span>Red Dot</span><strong>101</strong></div>
+        <div class="res-card"><span>2x Scope</span><strong>89</strong></div><div class="res-card"><span>4x Scope</span><strong>86</strong></div>
+        <div class="res-card"><span>Sniper Scope</span><strong>70</strong></div><div class="res-card accent"><span>Free Camera</span><strong>85</strong></div>
+      </div>
+      <div class="fire-tip">⚡ Values are starting recommendations; tune them in Training Ground for your touch and playstyle.</div>
+    </div></section>
 
-                <div class="profile-panel" id="profileCardBox">
-                    <div class="avatar-frame">
-                        <img id="userAvatar" src="zxtufan.jpg" alt="ZX TUFAN" onerror="handleAvatarFallback(this)">
-                        <div class="frame-glow"></div>
-                    </div>
-                    <div class="profile-details">
-                        <span id="profileBadge" class="legend-badge">LEGEND NEVER DIES</span>
-                        <h2 id="profileName">ZX ★ TUFAN <span class="v-badge">✔</span></h2>
-                        <p id="profileQuote" class="quote">"Main Agar Apni Jawani Ke Suna Du Kisse, Ye Jo Launde Hain, Mere Paon Dabane Lag Jaayein !!!"</p>
-                        <div class="stats-row" id="profileStats">
-                            <div class="stat-pill">🔥 BR Heroic</div>
-                            <div class="stat-pill">🛡️ UID: 2910340190</div>
-                            <div class="stat-pill">👍 6577 Likes</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <section id="sensimaker" class="tab-content"><div class="panel-box">
+      <h3>🔍 DEVICE SEARCH & SENSI MAKER</h3><p>Device search karein, RAM aur playstyle select karein.</p>
+      <div class="search-device-container"><div class="search-input-wrapper"><span>🔍</span><input id="deviceSearchInput" type="text" placeholder="Search device e.g. Redmi Note 9" oninput="filterDeviceSuggestions()" autocomplete="off"><button class="clear-search-btn" onclick="clearSearchInput()">✕</button></div><div id="deviceSuggestionsList" class="suggestions-dropdown hidden"></div></div>
+      <div class="selected-device-banner"><span>Selected:</span><strong id="selectedDeviceText">Redmi Note 9 (Helio G85)</strong></div>
+      <div class="input-grid">
+        <div class="input-group"><label for="makerRam">RAM</label><select id="makerRam"><option value="2">2 GB</option><option value="3">3 GB</option><option value="4" selected>4 GB</option><option value="6">6 GB</option><option value="8">8 GB</option><option value="12">12 GB / 16 GB</option></select></div>
+        <div class="input-group"><label for="makerPlaystyle">Playstyle</label><select id="makerPlaystyle"><option value="headshot_onetap">Headshot One-Tap</option><option value="br_cs_allrounder">BR + CS All Rounder</option><option value="no_recoil">No Recoil Spray</option></select></div>
+      </div>
+      <button class="cyber-btn btn-3d" onclick="generateCustomSensi()">⚡ GENERATE PRO CONFIG</button>
+      <div id="makerResult" class="result-box hidden"><div id="makerDeviceTitle" class="fire-tip"></div>
+        <div class="res-grid"><div class="res-card"><span>General</span><strong id="mGen">—</strong></div><div class="res-card"><span>Red Dot</span><strong id="mRed">—</strong></div><div class="res-card"><span>2x Scope</span><strong id="m2x">—</strong></div><div class="res-card"><span>4x Scope</span><strong id="m4x">—</strong></div><div class="res-card"><span>AWM</span><strong id="mAwm">—</strong></div><div class="res-card"><span>Free Look</span><strong id="mFreeLook">—</strong></div></div>
+        <div class="res-grid two"><div class="res-card accent"><span>Suggested DPI*</span><strong id="mDpi">—</strong></div><div class="res-card accent"><span>Fire Button</span><strong id="mFireBtn">—</strong></div></div><p id="makerNote" class="note"></p>
+      </div>
+    </div></section>
 
-        <!-- TAB 2: ZX TUFAN SENSI -->
-        <section id="tufansensi" class="tab-content">
-            <div class="panel-box">
-                <h3>🎯 ZX TUFAN OFFICIAL PRO SENSI SETUP</h3>
-                <p>Yeh aapki original personal sensitivity setting hai jo aap in-match use karte hain:</p>
+    <section id="hudscanner" class="tab-content"><div class="panel-box">
+      <h3>📸 HUD Layout Helper</h3><p>HUD screenshot select karein. This tool provides a grip-based starting suggestion; it does not perform AI image recognition.</p>
+      <div class="input-grid"><div class="input-group"><label for="hudFileInput">HUD Screenshot</label><label class="file-upload-btn">📁 Choose Screenshot<input type="file" id="hudFileInput" accept="image/*" onchange="previewHudImage(event)"></label></div>
+        <div class="input-group"><label for="hudGripSelect">Finger Grip</label><select id="hudGripSelect"><option value="2finger">2-Finger Thumb</option><option value="3finger" selected>3-Finger Claw</option><option value="4finger">4-Finger Claw</option></select></div></div>
+      <div id="hudPreviewContainer" class="hidden"><div class="hud-scan-wrapper"><img id="hudPreviewImg" alt="HUD preview"><div id="hudLaser" class="scan-laser hidden"></div></div><p id="hudImgMeta" class="note">HUD screenshot ready</p></div>
+      <button class="cyber-btn btn-3d" onclick="analyzeHudScreenshot()">🔍 CALCULATE HUD STARTING SETTINGS</button>
+      <div id="hudResultBox" class="result-box hidden"><div class="fire-tip">🎯 GRIP-BASED STARTING PROFILE</div><div class="res-grid"><div class="res-card"><span>General</span><strong id="hGen">—</strong></div><div class="res-card"><span>Red Dot</span><strong id="hRed">—</strong></div><div class="res-card"><span>2x Scope</span><strong id="h2x">—</strong></div><div class="res-card"><span>4x Scope</span><strong id="h4x">—</strong></div><div class="res-card"><span>Fire Button</span><strong id="hFireBtn">—</strong></div><div class="res-card accent"><span>Drag Zone</span><strong id="hDragZone">—</strong></div></div></div>
+    </div></section>
 
-                <div style="text-align:center; margin-bottom:15px; border:2px solid var(--neon-cyan); border-radius:12px; overflow:hidden; background:#020205; padding:8px;">
-                    <img src="zxtufansensi.jpg" alt="ZX TUFAN Sensi Setup" style="max-width:100%; border-radius:8px;" onerror="this.src='zxtufan.jpg'">
-                    <p style="font-size:0.8rem; color:var(--neon-cyan); margin-top:6px;">📸 Live In-Match Sensitivity Configuration</p>
-                </div>
+    <section id="nicknames" class="tab-content"><div class="panel-box">
+      <h3>🔥 Esports Nickname Generator</h3><p>Stylish nickname generate aur copy karein.</p>
+      <div class="input-group"><input type="text" id="baseNameInput" placeholder="Enter name" value="TUFAN" maxlength="24" oninput="generateNicknames()"></div>
+      <div class="button-row"><button class="cyber-btn btn-3d" onclick="generateNicknames()">✨ GENERATE</button><button class="cyber-btn btn-3d purple" onclick="loadMoreNicknames()">➕ LOAD MORE</button></div>
+      <p id="nickCounterText" class="note">Showing 30 combinations</p><div class="nick-results-container" id="nickResults"></div>
+    </div></section>
 
-                <div class="res-grid" style="grid-template-columns: repeat(2, 1fr); margin-bottom:15px;">
-                    <div class="res-card"><span>General</span><strong>107</strong></div>
-                    <div class="res-card"><span>Red Dot</span><strong>101</strong></div>
-                    <div class="res-card"><span>2x Scope</span><strong>89</strong></div>
-                    <div class="res-card"><span>4x Scope</span><strong>86</strong></div>
-                    <div class="res-card"><span>Sniper Scope</span>koi toh<strong>70</strong></div>
-                    <div class="res-card accent"><span>Free Camera Button</span><strong>85</strong></div>
-                </div>
-
-                <div class="fire-tip" style="background:rgba(0,243,255,0.08); border-color:var(--neon-cyan); color:var(--neon-cyan);">
-                    ⚡ PRO TIP: Ye high-acceleration configuration fast one-taps aur smooth drag movement ke liye calibrate ki gayi hai!
-                </div>
-            </div>
-        </section>
-
-        <!-- TAB 3: SENSI MAKER (FULLY FIXED & EXPANDED WITH MORE DEVICES) -->
-        <section id="sensimaker" class="tab-content">
-            <div class="panel-box">
-                <h3>🔍 SEARCH YOUR DEVICE & SENSI MAKER</h3>
-                <p>Apna brand ya model type karein (jaise "Redmi Note 9", "Lava Agni", "ZTE Axon", "Nubia", "iQOO", "Micromax", "Samsung", "iPhone"):</p>
-                
-                <div class="search-device-container">
-                    <div class="search-input-wrapper">
-                        <span class="search-icon">🔍</span>
-                        <input type="text" id="deviceSearchInput" placeholder="Type brand or model - e.g. 'Redmi Note 9', 'Agni 2', 'ZTE'" oninput="filterDeviceSuggestions()" autocomplete="off">
-                        <button class="clear-search-btn" onclick="clearSearchInput()">✕</button>
-                    </div>
-                    
-                    <div id="deviceSuggestionsList" class="suggestions-dropdown hidden"></div>
-                </div>
-
-                <div class="selected-device-banner" id="selectedDeviceBanner">
-                    <span>Selected Device:</span> <strong id="selectedDeviceText">Redmi Note 9 (Helio G85)</strong>
-                </div>
-
-                <div class="input-grid" style="margin-top: 15px;">
-                    <div class="input-group">
-                        <label>3. Select Your RAM:</label>
-                        <select id="makerRam">
-                            <option value="2">2 GB RAM</option>
-                            <option value="3">3 GB RAM</option>
-                            <option value="4" selected>4 GB RAM</option>
-                            <option value="6">6 GB RAM</option>
-                            <option value="8">8 GB RAM</option>
-                            <option value="12">12 GB / 16 GB RAM</option>
-                        </select>
-                    </div>
-
-                    <div class="input-group">
-                        <label>4. Select Playstyle & Weapon Focus:</label>
-                        <select id="makerPlaystyle">
-                            <option value="headshot_onetap">Headshot One-Tap (M1887 / Desert Eagle / Woodpecker)</option>
-                            <option value="br_cs_allrounder">BR + CS (All Rounder Balanced)</option>
-                            <option value="no_recoil">No Recoil Spray (MP40 / Scar / M4A1 Zero Shake)</option>
-                        </select>
-                    </div>
-                </div>
-
-                <button class="cyber-btn btn-3d" onclick="generateCustomSensi()">⚡ GENERATE ZX TUFAN PRO CONFIG</button>
-
-                <div id="makerResult" class="result-box hidden">
-                    <div id="makerDeviceTitle" class="fire-tip" style="margin-bottom:12px;">Config Generated Successfully!</div>
-                    
-                    <div class="res-grid" style="grid-template-columns: repeat(3, 1fr);">
-                        <div class="res-card"><span>General</span><strong id="mGen">96</strong></div>
-                        <div class="res-card"><span>Red Dot</span><strong id="mRed">93</strong></div>
-                        <div class="res-card"><span>2X Scope</span><strong id="m2x">90</strong></div>
-                        <div class="res-card"><span>4X Scope</span><strong id="m4x">87</strong></div>
-                        <div class="res-card"><span>AWM Scope</span><strong id="mAwm">72</strong></div>
-                        <div class="res-card"><span>Free Look</span><strong id="mFreeLook">85</strong></div>
-                    </div>
-
-                    <div class="res-grid" style="grid-template-columns: repeat(2, 1fr); margin-top:10px;">
-                        <div class="res-card accent"><span id="mDpiLabel">Safe DPI (&lt;450)</span><strong id="mDpi">430</strong></div>
-                        <div class="res-card accent"><span>Fire Button Size</span><strong id="mFireBtn">46%</strong></div>
-                    </div>
-                    <p id="makerNote" style="font-size:0.85rem; color:var(--text-dim); margin-top:10px; text-align:center;"></p>
-                </div>
-            </div>
-        </section>
-
-        <!-- TAB 4: HUD ANALYZER -->
-        <section id="hudscanner" class="tab-content">
-            <div class="panel-box">
-                <h3>📸 Custom HUD Layout & Drag Calculator</h3>
-                <p>Gallery se apna HUD screenshot select karein aur apni finger claw style chunein.</p>
-                
-                <div class="input-grid">
-                    <div class="input-group">
-                        <label>1. Select HUD Screenshot:</label>
-                        <label class="file-upload-btn btn-3d" style="padding:11px;">
-                            📁 Choose Screenshot
-                            <input type="file" id="hudFileInput" accept="image/*" onchange="previewHudImage(event)" style="display:none;">
-                        </label>
-                    </div>
-                    <div class="input-group">
-                        <label>2. Your Finger Claw Grip:</label>
-                        <select id="hudGripSelect">
-                            <option value="2finger">2-Finger Thumb (Classic Drag)</option>
-                            <option value="3finger" selected>3-Finger Claw (Quick Switch + One-Tap)</option>
-                            <option value="4finger">4-Finger Claw (Pro Movement + Fast Gloo)</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div id="hudPreviewContainer" class="hidden" style="margin-bottom:15px; text-align:center;">
-                    <div class="hud-scan-wrapper">
-                        <img id="hudPreviewImg" src="" alt="HUD Preview">
-                        <div id="hudLaser" class="scan-laser hidden"></div>
-                    </div>
-                    <p id="hudImgMeta" style="font-size:0.8rem; color:var(--neon-cyan); margin-top:6px;">HUD Screenshot Ready!</p>
-                </div>
-
-                <button class="cyber-btn btn-3d" onclick="analyzeHudScreenshot()">🔍 CALCULATE HUD DRAG & SENSI</button>
-
-                <div id="hudResultBox" class="result-box hidden" style="margin-top:15px;">
-                    <div class="fire-tip" style="margin-bottom:12px;">🎯 HUD SCREEN GEOMETRY & GRIP CALIBRATED!</div>
-                    <div class="res-grid">
-                        <div class="res-card"><span>General</span><strong id="hGen">98</strong></div>
-                        <div class="res-card"><span>Red Dot</span><strong id="hRed">95</strong></div>
-                        <div class="res-card"><span>2X Scope</span><strong id="h2x">92</strong></div>
-                        <div class="res-card"><span>4X Scope</span><strong id="h4x">89</strong></div>
-                        <div class="res-card"><span>Fire Button</span><strong id="hFireBtn">44%</strong></div>
-                        <div class="res-card accent"><span>Drag Zone</span><strong id="hDragZone">Lower-Right</strong></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- TAB 5: 10K NICKNAMES -->
-        <section id="nicknames" class="tab-content">
-            <div class="panel-box">
-                <h3>🔥 10,000+ Unique Nickname Generator</h3>
-                <p>Har naam ke unique 3D esports typography combinations generate aur ek click par copy karein.</p>
-                
-                <div class="input-group">
-                    <input type="text" id="baseNameInput" placeholder="Enter name (e.g. TUFAN)" value="TUFAN" oninput="generateNicknames()">
-                </div>
-                
-                <div style="display:flex; gap:10px; flex-wrap:wrap;">
-                    <button class="cyber-btn btn-3d" style="flex:1;" onclick="generateNicknames()">✨ GENERATE NEW STYLES</button>
-                    <button class="cyber-btn btn-3d" style="flex:1; background:linear-gradient(135deg,#ff007f,#7b00ff);" onclick="loadMoreNicknames()">➕ LOAD MORE</button>
-                </div>
-
-                <p id="nickCounterText" style="font-size:0.8rem; color:var(--neon-cyan); margin-top:10px; margin-bottom:4px;">Showing 30 combinations</p>
-                <div class="nick-results-container" id="nickResults"></div>
-            </div>
-        </section>
-
-        <footer class="hub-footer">
-            <p>Designed for ZX TUFAN Squad | ZX TUFAN PRO SENSI V6.0</p>
-        </footer>
-    </div>
-
-    <script src="script.js"></script>
-</body>
-</html>
+    <section id="termscan" class="tab-content"><div class="panel-box">
+      <h3>📱 TERMUX DEVICE SCANNER</h3><p>Download the Python scanner, run it in Termux, then upload its JSON report here. It reads basic Android properties only.</p>
+      <div class="fire-tip">🔒 No account data, messages, contacts, or files are read.</div>
+      <div class="button-row"><button class="cyber-btn btn-3d" onclick="downloadTermuxScanner()">⬇ DOWNLOAD main.py</button><button class="cyber-btn btn-3d" onclick="copyTermuxCommands()">📋 COPY COMMANDS</button></div>
+      <div class="input-group"><label>Termux commands</label><pre id="termuxCommands">termux-setup-storage
+pkg update -y && pkg install python -y
+cd ~/storage/downloads
+python main.py</pre></div>
+      <div class="input-group"><label for="deviceReportInput">Upload device_report.json</label><input type="file" id="deviceReportInput" accept=".json,application/json"></div>
+      <button class="cyber-btn btn-3d" onclick="analyseTermuxReport()">🔍 ANALYSE DEVICE & RECOMMEND SENSI</button>
+      <div id="termuxScanStatus" class="fire-tip status-message">Waiting for your Termux report.</div>
+      <div id="termuxDeviceResult" class="result-box hidden"><h3 id="termuxDeviceTitle">Detected Android device</h3>
+        <div class="res-grid"><div class="res-card"><span>Brand</span><strong id="scanBrand">—</strong></div><div class="res-card"><span>Model</span><strong id="scanModel">—</strong></div><div class="res-card"><span>Android</span><strong id="scanAndroid">—</strong></div><div class="res-card"><span>Resolution</span><strong id="scanResolution">—</strong></div><div class="res-card"><span>Refresh rate</span><strong id="scanRefresh">—</strong></div><div class="res-card"><span>Total RAM</span><strong id="scanRam">—</strong></div></div>
+        <h3>🎯 Suggested sensitivity</h3><div class="res-grid"><div class="res-card"><span>General</span><strong id="scanGen">—</strong></div><div class="res-card"><span>Red Dot</span><strong id="scanRed">—</strong></div><div class="res-card"><span>2x</span><strong id="scan2x">—</strong></div><div class="res-card"><span>4x</span><strong id="scan4x">—</strong></div><div class="res-card"><span>Sniper</span><strong id="scanSniper">—</strong></div><div class="res-card"><span>Free Look</span><strong id="scanFree">—</strong></div></div><p id="scanDisclaimer" class="note"></p>
+      </div>
+    </div></section>
+    <footer class="hub-footer">Designed for ZX TUFAN Squad | ZX TUFAN PRO SENSI V7.0</footer>
+  </main>
+  <script src="script.js"></script>
+</body></html>
