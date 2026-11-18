@@ -213,3 +213,49 @@ body {
 .copy-tag { font-size: 0.65rem; background: var(--neon-purple); padding: 4px 8px; border-radius: 4px; flex-shrink: 0; font-weight: 700; }
 
 .hub-footer { text-align: center; margin-top: 20px; font-size: 0.78rem; color: var(--text-dim); }
+
+/* Exact ffsensitivity.com Search Box Styles */
+.search-device-container { position: relative; margin-bottom: 12px; }
+.search-input-wrapper {
+    display: flex; align-items: center; background: rgba(8, 6, 15, 0.95);
+    border: 2px solid var(--neon-orange, #ff6b00); border-radius: 12px;
+    padding: 4px 12px; box-shadow: 0 0 15px rgba(255, 107, 0, 0.25);
+}
+.search-icon { font-size: 1.1rem; margin-right: 8px; }
+.search-input-wrapper input {
+    width: 100%; background: transparent; border: none; color: #fff;
+    font-size: 1rem; padding: 10px 0; outline: none; font-family: 'Rajdhani', sans-serif;
+}
+.clear-search-btn {
+    background: rgba(255, 255, 255, 0.1); border: none; color: #fff;
+    width: 28px; height: 28px; border-radius: 50%; cursor: pointer;
+    font-weight: bold; display: flex; align-items: center; justify-content: center;
+}
+.clear-search-btn:hover { background: rgba(255, 107, 0, 0.5); }
+
+.suggestions-dropdown {
+    position: absolute; top: 100%; left: 0; width: 100%; max-height: 260px;
+    overflow-y: auto; background: #0c0818; border: 1px solid var(--neon-cyan);
+    border-radius: 0 0 12px 12px; z-index: 100; box-shadow: 0 8px 25px rgba(0,0,0,0.8);
+}
+.suggestion-item {
+    padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.06);
+    cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.95krem; transition: background 0.15s ease;
+}
+.suggestion-item:hover { background: rgba(0, 243, 255, 0.15); color: var(--neon-cyan); }
+.tier-tag {
+    font-size: 0.7rem; padding: 2px 8px; border-radius: 6px; font-weight: 700;
+    font-family: 'Orbitron', sans-serif; text-transform: uppercase;
+}
+.tier-tag.entry { background: rgba(255, 193, 7, 0.2); color: #ffc107; border: 1px solid #ffc107; }
+.tier-tag.mid { background: rgba(0, 243, 255, 0.2); color: var(--neon-cyan); border: 1px solid var(--neon-cyan); }
+.tier-tag.upper { background: rgba(157, 0, 255, 0.2); color: #d400ff; border: 1px solid #d400ff; }
+.tier-tag.flagship { background: rgba(255, 107, 0, 0.2); color: #ff6b00; border: 1px solid #ff6b00; }
+
+.selected-device-banner {
+    background: rgba(0, 243, 255, 0.08); border: 1px solid var(--neon-cyan);
+    padding: 10px 14px; border-radius: 9px; font-size: 0.9rem; color: #fff;
+    display: flex; justify-content: space-between; align-items: center;
+}
+.selected-device-banner strong { color: var(--neon-cyan); font-family: 'Orbitron', sans-serif; }

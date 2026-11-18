@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZX TUFAN & SQUAD | Ultimate Esports Hub V4.4</title>
+    <title>ZX TUFAN & SQUAD | Ultimate Esports Hub V4.6</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Cinzel:wght@700;900&family=Rajdhani:wght@500;700&family=Syncopate:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -17,10 +17,10 @@
         <header class="hub-header">
             <div class="logo-box">
                 <span class="neon-badge">ZX TUFAN SQUAD</span>
-                <h1>ESPORTS PRO <span class="gemini-tag">V4.4</span></h1>
+                <h1>FF SENSITIVITY PRO <span class="gemini-tag">V4.6</span></h1>
             </div>
             <div class="status-pill">
-                <span class="pulse-dot"></span> HEROIC ENGINE
+                <span class="pulse-dot"></span> 130+ DEVICES
             </div>
         </header>
 
@@ -146,78 +146,49 @@ print(f"Sensi -> General: {95 if ram_gb<=4 else 98} | Red Dot: {92 if ram_gb<=4 
             </div>
         </section>
 
-        <!-- TAB 3: SENSI MAKER -->
+        <!-- TAB 3: SENSI MAKER (EXACT FFSENSITIVITY.COM LIVE SEARCH UI) -->
         <section id="sensimaker" class="tab-content">
             <div class="panel-box">
-                <h3>🎯 Sensiff Pro Sensi Maker (Device Specs & Weapon Calibration)</h3>
-                <p>Apna phone model aur RAM select karein—yeh tool sensiff.pro jaisa complete professional breakdown (General, Red Dot, Scopes, Free Look, Fire Button & Safe DPI) generate karega.</p>
+                <h3>🔍 SEARCH YOUR DEVICE</h3>
+                <p>Jaise ffsensitivity.com par hota hai, yahan apna brand ya model type karein (jaise "Redmi", "iPhone", "Lava", "ZTE", "iQOO", "Nubia", "Micromax") aur instant result chunein:</p>
                 
-                <div class="input-grid">
-                    <div class="input-group">
-                        <label>1. Select Your Device (All Phone Models):</label>
-                        <select id="makerModelSelect">
-                            <optgroup label="Xiaomi / Redmi / POCO">
-                                <option value="Redmi Note 9" data-brand="xiaomi" data-chip="Helio G85" data-tier="mid" selected>Redmi Note 9 (Helio G85)</option>
-                                <option value="Redmi Note 9 Pro" data-brand="xiaomi" data-chip="Snapdragon 720G" data-tier="mid">Redmi Note 9 Pro (Snapdragon 720G)</option>
-                                <option value="Redmi 9A / 9C / 10A" data-brand="xiaomi" data-chip="MediaTek Helio" data-tier="entry">Redmi 9A / 9C / 10A</option>
-                                <option value="Redmi Note 10 Pro / 11 Pro" data-brand="xiaomi" data-chip="Snapdragon 732G" data-tier="mid">Redmi Note 10 Pro / 11 Pro</option>
-                                <option value="Redmi Note 12 / 13 Pro+" data-brand="xiaomi" data-chip="Dimensity Series" data-tier="upper">Redmi Note 12 / 13 Pro+</option>
-                                <option value="POCO X3 Pro / F3" data-brand="xiaomi" data-chip="Snapdragon 860" data-tier="upper">POCO X3 Pro / F3</option>
-                                <option value="POCO X6 Pro / F6" data-brand="xiaomi" data-chip="Dimensity 8300-Ultra" data-tier="flagship">POCO X6 Pro / F6</option>
-                                <option value="Xiaomi 13 / 14 Ultra" data-brand="xiaomi" data-chip="Snapdragon 8 Gen 3" data-tier="flagship">Xiaomi 13 / 14 Ultra</option>
-                            </optgroup>
-                            <optgroup label="Apple iPhone (iOS)">
-                                <option value="iPhone 11 / SE (2020)" data-brand="apple" data-chip="A13 Bionic" data-tier="upper">iPhone 11 / SE (2020)</option>
-                                <option value="iPhone 12 / 12 Pro" data-brand="apple" data-chip="A14 Bionic" data-tier="flagship">iPhone 12 / 12 Pro</option>
-                                <option value="iPhone 13 / 13 Pro Max" data-brand="apple" data-chip="A15 Bionic" data-tier="flagship">iPhone 13 / 13 Pro Max</option>
-                                <option value="iPhone 14 / 14 Pro Max" data-brand="apple" data-chip="A16 Bionic" data-tier="flagship">iPhone 14 / 14 Pro Max</option>
-                                <option value="iPhone 15 / 16 Pro Max" data-brand="apple" data-chip="A17/A18 Pro" data-tier="flagship">iPhone 15 / 16 Pro Max</option>
-                            </optgroup>
-                            <optgroup label="Samsung Galaxy">
-                                <option value="Samsung Galaxy A12 / A14 / A15" data-brand="samsung" data-chip="Exynos / Mediatek" data-tier="entry">Samsung Galaxy A12 / A14 / A15</option>
-                                <option value="Samsung Galaxy A32 / A52 / A54" data-brand="samsung" data-chip="Exynos 1280" data-tier="mid">Samsung Galaxy A32 / A52 / A54</option>
-                                <option value="Samsung Galaxy S20 FE / S21 FE" data-brand="samsung" data-chip="Snapdragon 865" data-tier="upper">Samsung Galaxy S20 FE / S21 FE</option>
-                                <option value="Samsung Galaxy S22 / S23 / S24 Ultra" data-brand="samsung" data-chip="Snapdragon 8 Gen 3" data-tier="flagship">Samsung Galaxy S22 / S23 / S24 Ultra</option>
-                            </optgroup>
-                            <optgroup label="OnePlus & Realme">
-                                <option value="OnePlus Nord CE 3 / Nord 3" data-brand="oneplus" data-chip="Dimensity 9000" data-tier="upper">OnePlus Nord CE 3 / Nord 3</option>
-                                <option value="OnePlus 9R / 11R / 12R" data-brand="oneplus" data-chip="Snapdragon 8+ Gen 1" data-tier="flagship">OnePlus 9R / 11R / 12R</option>
-                                <option value="Realme C53 / C55 / Narzo 50" data-brand="realme" data-chip="Helio G96" data-tier="entry">Realme C53 / C55 / Narzo 50</option>
-                                <option value="Realme 10 Pro+ / 11 Pro+ / 12 Pro+" data-brand="realme" data-chip="Dimensity 7050" data-tier="upper">Realme 10 Pro+ / 11 Pro+ / 12 Pro+</option>
-                                <option value="Realme GT Neo 3 / GT 6" data-brand="realme" data-chip="Snapdragon 8s Gen 3" data-tier="flagship">Realme GT Neo 3 / GT 6</option>
-                            </optgroup>
-                            <optgroup label="Vivo / iQOO / OPPO">
-                                <option value="Vivo Y21 / Y36 / V29 Pro" data-brand="vivo" data-chip="Dimensity 8200" data-tier="mid">Vivo Y21 / Y36 / V29 Pro</option>
-                                <option value="iQOO Z7 / Z9 / Neo 7 / Neo 9 Pro" data-brand="iqoo" data-chip="Snapdragon 8 Gen 2" data-tier="flagship">iQOO Z7 / Z9 / Neo 7 / Neo 9 Pro</option>
-                                <option value="OPPO A54 / A78 / Reno 10 Pro" data-brand="oppo" data-chip="Snapdragon 778G" data-tier="mid">OPPO A54 / A78 / Reno 10 Pro</option>
-                            </optgroup>
-                            <optgroup label="Gaming Phones (ROG / RedMagic)">
-                                <option value="ASUS ROG Phone 6 / 7 / 8" data-brand="gaming" data-chip="Snapdragon 8 Gen 2/3" data-tier="flagship">ASUS ROG Phone 6 / 7 / 8</option>
-                                <option value="Nubia RedMagic 8 / 9 Pro" data-brand="gaming" data-chip="Snapdragon 8 Gen 3" data-tier="flagship">Nubia RedMagic 8 / 9 Pro</option>
-                            </optgroup>
-                        </select>
+                <div class="search-device-container">
+                    <div class="search-input-wrapper">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" id="deviceSearchInput" placeholder="Type brand or model - e.g. 'Redmi', 'iPhone 15', 'Agni 2'" oninput="filterDeviceSuggestions()" autocomplete="off">
+                        <button class="clear-search-btn" onclick="clearSearchInput()">✕</button>
                     </div>
-
-                    <div class="input-group">
-                        <label>2. Select Your RAM:</label>
-                        <select id="makerRam">
-                            <option value="2">2 GB RAM</option>
-                            <option value="3">3 GB RAM</option>
-                            <option value="4" selected>4 GB RAM (Redmi Note 9 Standard)</option>
-                            <option value="6">6 GB RAM</option>
-                            <option value="8">8 GB RAM</option>
-                            <option value="12">12 GB RAM</option>
-                        </select>
+                    
+                    <div id="deviceSuggestionsList" class="suggestions-dropdown hidden">
+                        <!-- Dynamically populated via JS -->
                     </div>
                 </div>
 
-                <div class="input-group">
-                    <label>3. Select Playstyle & Weapon Focus:</label>
-                    <select id="makerPlaystyle">
-                        <option value="headshot_onetap">Headshot One-Tap (M1887 / Desert Eagle / Woodpecker)</option>
-                        <option value="br_cs_allrounder">BR + CS (All Rounder Balanced)</option>
-                        <option value="no_recoil">No Recoil Spray (MP40 / Scar / M4A1 Zero Shake)</option>
-                    </select>
+                <div class="selected-device-banner" id="selectedDeviceBanner">
+                    <span>Selected Device:</span> <strong id="selectedDeviceText">Redmi Note 9 (Helio G85)</strong>
+                </div>
+
+                <div class="input-grid" style="margin-top: 15px;">
+                    <div class="input-group">
+                        <label>3. Select Your RAM:</label>
+                        <select id="makerRam">
+                            <option value="2">2 GB RAM</option>
+                            <option value="3">3 GB RAM</option>
+                            <option value="4" selected>4 GB RAM</option>
+                            <option value="6">6 GB RAM</option>
+                            <option value="8">8 GB RAM</option>
+                            <option value="12">12 GB / 16 GB RAM</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label>4. Select Playstyle & Weapon Focus:</label>
+                        <select id="makerPlaystyle">
+                            <option value="headshot_onetap">Headshot One-Tap (M1887 / Desert Eagle / Woodpecker)</option>
+                            <option value="br_cs_allrounder">BR + CS (All Rounder Balanced)</option>
+                            <option value="no_recoil">No Recoil Spray (MP40 / Scar / M4A1 Zero Shake)</option>
+                        </select>
+                    </div>
                 </div>
 
                 <button class="cyber-btn btn-3d" onclick="generateCustomSensi()">⚡ GENERATE SENSIFF PRO CONFIG</button>
@@ -318,7 +289,7 @@ print(f"Sensi -> General: {95 if ram_gb<=4 else 98} | Red Dot: {92 if ram_gb<=4 
         </section>
 
         <footer class="hub-footer">
-            <p>Designed for ZX TUFAN Squad | Sensiff Pro Edition V4.4</p>
+            <p>Designed for ZX TUFAN Squad | FF Sensitivity Pro V4.6</p>
         </footer>
     </div>
 
