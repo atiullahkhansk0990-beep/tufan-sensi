@@ -3,139 +3,312 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#07050d">
-    <title>TUFAN SENSI | Premium 3D Esports Hub</title>
+    <title>ZX TUFAN | Ultimate Esports HUD & Sensi Analyzer V4.1</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Cinzel:wght@700;900&family=Rajdhani:wght@500;700&family=Syncopate:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="cyber-bg" aria-hidden="true"></div>
-    <div class="glow-orb orb-1" aria-hidden="true"></div>
-    <div class="glow-orb orb-2" aria-hidden="true"></div>
+    <div class="cyber-bg"></div>
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
 
     <div class="container">
+        <!-- Header -->
         <header class="hub-header">
             <div class="logo-box">
-                <span class="neon-badge">3D EDITION</span>
-                <h1>TUFAN SENSI <span class="gemini-tag">BY GEMINI</span></h1>
+                <span class="neon-badge">ZX TUFAN HUB</span>
+                <h1>ESPORTS PRO <span class="gemini-tag">V4.1</span></h1>
             </div>
-            <div class="status-pill"><span class="pulse-dot"></span> ELITE HEROIC HUB</div>
+            <div class="status-pill">
+                <span class="pulse-dot"></span> HEROIC ENGINE
+            </div>
         </header>
 
-        <nav class="hub-nav" aria-label="Main navigation">
-            <button type="button" class="nav-btn active" onclick="switchTab('dashboard', this)" aria-controls="dashboard" aria-selected="true">🛡️ Dashboard</button>
-            <button type="button" class="nav-btn" onclick="switchTab('sensi', this)" aria-controls="sensi" aria-selected="false">🎯 Pro Sensi &amp; DPI</button>
-            <button type="button" class="nav-btn" onclick="switchTab('termux', this)" aria-controls="termux" aria-selected="false">💻 Termux Hardware</button>
-            <button type="button" class="nav-btn" onclick="switchTab('nicknames', this)" aria-controls="nicknames" aria-selected="false">🔥 10K Nicknames</button>
+        <!-- Navigation Menu -->
+        <nav class="hub-nav">
+            <button class="nav-btn active" onclick="switchTab('dashboard', this)">🛡️ Dashboard</button>
+            <button class="nav-btn" onclick="switchTab('termux', this)">💻 Device & Termux</button>
+            <button class="nav-btn" onclick="switchTab('sensimaker', this)">🎯 Sensi Maker</button>
+            <button class="nav-btn" onclick="switchTab('hudscanner', this)">📸 HUD Analyzer</button>
+            <button class="nav-btn" onclick="switchTab('nicknames', this)">🔥 10K Nicknames</button>
         </nav>
 
-        <main>
-            <section id="dashboard" class="tab-content active">
-                <div class="profile-card panel-box">
-                    <div class="avatar-frame">
-                        <img id="userAvatar" src="31227.png" alt="ZX TUFAN profile image"
-                             onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1542751371-adc38448a05e?w=500&auto=format&fit=crop&q=60'">
-                        <div class="frame-glow"></div>
-                    </div>
-                    <div class="profile-details">
-                        <span class="legend-badge">LEGEND NEVER DIES</span>
-                        <h2>Zx★Tufan <span class="v-badge" aria-label="Verified-style badge">✔</span></h2>
-                        <p class="quote">"Main Agar Apni Jawani Ke Suna Du Kisse, Ye Jo Launde Hain, Mere Paon Dabane Lag Jaayein !!!"</p>
-                        <div class="stats-row">
-                            <div class="stat-pill">🔥 BR Heroic</div>
-                            <div class="stat-pill">🛡️ UID: 2910340190</div>
-                            <div class="stat-pill">👍 6577 Likes</div>
-                        </div>
+        <!-- TAB 1: DASHBOARD -->
+        <section id="dashboard" class="tab-content active">
+            <div class="panel-box profile-panel">
+                <div class="avatar-frame">
+                    <img id="userAvatar" src="38866.png" alt="ZX TUFAN" onerror="handleAvatarFallback(this)">
+                    <div class="frame-glow"></div>
+                </div>
+                <div class="profile-details">
+                    <span class="legend-badge">LEGEND NEVER DIES</span>
+                    <h2>ZX ★ TUFAN <span class="v-badge">✔</span></h2>
+                    <p class="quote">"Main Agar Apni Jawani Ke Suna Du Kisse, Ye Jo Launde Hain, Mere Paon Dabane Lag Jaayein !!!"</p>
+                    <div class="stats-row">
+                        <div class="stat-pill">🔥 BR Heroic</div>
+                        <div class="stat-pill">🛡️ UID: 2910340190</div>
+                        <div class="stat-pill">👍 6577 Likes</div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section id="sensi" class="tab-content" hidden>
-                <div class="panel-box">
-                    <h3>🎯 Ultimate Shotgun Sensi &amp; DPI Calculator</h3>
-                    <p>Select your device brand and RAM for a starting sensitivity recommendation. Results are suggestions, not guaranteed headshot settings.</p>
-                    <div class="input-grid">
-                        <div class="input-group">
-                            <label for="brandSelect">Select Device Brand:</label>
-                            <select id="brandSelect">
-                                <option value="apple">Apple iPhone (iOS Engine)</option>
-                                <option value="xiaomi" selected>Xiaomi / POCO (HyperOS)</option>
-                                <option value="samsung">Samsung Galaxy (OneUI)</option>
-                                <option value="oneplus">OnePlus / Realme (OxygenOS)</option>
-                                <option value="rog">ROG Phone / RedMagic</option>
-                                <option value="vivo">Vivo / iQOO (Funtouch)</option>
-                            </select>
-                        </div>
-                        <div class="input-group">
-                            <label for="ramSelect">Device RAM:</label>
-                            <select id="ramSelect">
-                                <option value="low">4GB / 6GB RAM</option>
-                                <option value="mid" selected>8GB RAM (Standard Pro)</option>
-                                <option value="high">12GB / 16GB+ RAM (Ultra)</option>
-                            </select>
-                        </div>
+        <!-- TAB 2: REAL BROWSER PROFILER + REAL TERMUX PYTHON SCRIPT -->
+        <section id="termux" class="tab-content">
+            <div class="panel-box terminal-panel">
+                <h3>💻 Device Profiler & Real Termux Script</h3>
+                <p>Browser se real screen/CPU metrics inspect karein ya apne Android Termux mein asli hardware scan ke liye <code>main.py</code> copy karein.</p>
+                
+                <div class="terminal-window">
+                    <div class="term-header">
+                        <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                        <span class="term-title">bash - web-profiler & termux@zxtufan</span>
                     </div>
-                    <button type="button" class="cyber-btn" onclick="generateSensi()">⚡ GENERATE PRO CONFIG</button>
-                    <div id="sensiResult" class="result-box hidden" aria-live="polite">
-                        <div class="res-grid">
-                            <div class="res-card"><span>General</span><strong id="vGen">98</strong></div>
-                            <div class="res-card"><span>Red Dot</span><strong id="vRed">95</strong></div>
-                            <div class="res-card"><span>2X Scope</span><strong id="v2x">93</strong></div>
-                            <div class="res-card"><span>4X Scope</span><strong id="v4x">90</strong></div>
-                            <div class="res-card"><span>AWM Scope</span><strong id="vAwm">75</strong></div>
-                            <div class="res-card accent"><span>DPI Level*</span><strong id="vDpi">580</strong></div>
-                        </div>
-                        <div class="fire-tip">🎯 Try these values in training mode and fine-tune to your touch preference.</div>
-                        <p class="small-note">*DPI is an optional Android display setting recommendation. iPhones do not offer an equivalent user-adjustable DPI setting.</p>
+                    <div class="term-body" id="termOutput">
+                        <p class="term-line">~ $ python main.py</p>
+                        <p class="term-line">[INFO] Browser Sandbox Note: Web browsers expose Screen Resolution, DPR, Logical CPU Cores, and approximate Device Memory.</p>
+                        <p class="term-line">[READY] Click 'RUN WEB DEVICE SCAN' below, or copy the real Termux Python script for full /proc/cpuinfo & getprop scan.</p>
+                    </div>
+                    <div class="term-input-row">
+                        <span class="prompt">~ $</span>
+                        <input type="text" id="termCmdInput" placeholder="python main.py" onkeydown="if(event.key==='Enter') runTermuxScan()">
                     </div>
                 </div>
-            </section>
 
-            <section id="termux" class="tab-content" hidden>
-                <div class="panel-box terminal-panel">
-                    <h3>💻 Termux Hardware Demo Terminal</h3>
-                    <p>This is a simulated example report for the website preview. It does not run Python or scan your phone hardware.</p>
-                    <div class="terminal-window">
-                        <div class="term-header">
-                            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
-                            <span class="term-title">bash - termux@zxtufan</span>
-                        </div>
-                        <div class="term-body" id="termOutput" aria-live="polite">
-                            <p class="term-line">~ $ python main.py</p>
-                            <p class="term-line">[DEMO] PyHardware Profiler preview loaded.</p>
-                            <p class="term-line">[INFO] Click below to display sample device information.</p>
-                        </div>
-                    </div>
-                    <button type="button" class="cyber-btn" onclick="runTermuxScript()">🚀 SHOW SAMPLE REPORT</button>
+                <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                    <button class="cyber-btn btn-3d" style="flex:1; min-width:200px;" onclick="runTermuxScan()">🚀 RUN WEB DEVICE SCAN</button>
+                    <button class="cyber-btn btn-3d" style="flex:1; min-width:200px; background:linear-gradient(135deg,#00b894,#0984e3);" onclick="toggleTermuxCode()">📋 VIEW REAL TERMUX main.py</button>
                 </div>
-            </section>
 
-            <section id="nicknames" class="tab-content" hidden>
-                <div class="panel-box">
-                    <h3>🔥 10,000+ Premium Nickname Generator</h3>
-                    <p>Enter your gaming name to create up to 10,000 combinations. Tap any nickname to copy it.</p>
+                <div id="realPythonBox" class="result-box hidden" style="margin-top:15px;">
+                    <div class="fire-tip" style="margin-bottom:10px; background:rgba(0,243,255,0.1); border-color:var(--neon-cyan); color:var(--neon-cyan);">
+                        🐍 Real Termux Hardware Script (Save as <code>main.py</code> in Termux & run <code>python main.py</code>)
+                    </div>
+                    <pre id="pythonCodeBlock" style="background:#020205; color:#00ff66; padding:12px; border-radius:8px; font-size:0.78rem; overflow-x:auto; border:1px solid #1a3d1a;">import os, subprocess
+
+def get_prop(prop):
+    try:
+        return subprocess.check_output(['getprop', prop]).decode().strip()
+    except Exception:
+        return "Unknown"
+
+model = get_prop('ro.product.model') or "Android Device"
+brand = get_prop('ro.product.brand').upper()
+android_ver = get_prop('ro.build.version.release')
+density = get_prop('ro.sf.lcd_density') or "440"
+
+mem_kb = 0
+try:
+    with open('/proc/meminfo') as f:
+        for line in f:
+            if 'MemTotal' in line:
+                mem_kb = int(line.split()[1])
+                break
+except Exception:
+    pass
+
+ram_gb = round(mem_kb / (1024 * 1024), 1) if mem_kb else 4.0
+safe_dpi = 420 if ram_gb <= 4.0 else (475 if ram_gb <= 6.0 else 540)
+
+print(f"=== ZX TUFAN REAL HARDWARE REPORT ===")
+print(f"Device: {brand} {model} (Android {android_ver})")
+print(f"Total RAM: {ram_gb} GB | Native Density: {density}")
+print(f"Recommended Safe DPI: {safe_dpi} (Low-end capped < 450)")
+print(f"Sensi -> General: {95 if ram_gb<=4 else 98} | Red Dot: {92 if ram_gb<=4 else 95}")</pre>
+                    <button class="cyber-btn btn-3d" style="margin-top:10px;" onclick="copyPythonScript(this)">📄 COPY main.py CODE</button>
+                </div>
+
+                <div id="termResult" class="result-box hidden" style="margin-top:20px;">
+                    <div id="termResultHeader" class="fire-tip" style="margin-bottom:12px; background:rgba(0,255,102,0.1); border-color:#00ff66; color:#00ff66;">
+                        ⚡ BROWSER HARDWARE METRICS DETECTED & SENSI CALIBRATED!
+                    </div>
+                    <div class="res-grid">
+                        <div class="res-card"><span>General</span><strong id="tGen">97</strong></div>
+                        <div class="res-card"><span>Red Dot</span><strong id="tRed">94</strong></div>
+                        <div class="res-card"><span>2X Scope</span><strong id="t2x">91</strong></div>
+                        <div class="res-card"><span>4X Scope</span><strong id="t4x">88</strong></div>
+                        <div class="res-card"><span>AWM Scope</span><strong id="tAwm">72</strong></div>
+                        <div class="res-card accent"><span>Smart DPI</span><strong id="tDpi">430</strong></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 3: SENSI MAKER (MANUAL PRO CUSTOMIZER) -->
+        <section id="sensimaker" class="tab-content">
+            <div class="panel-box">
+                <h3>🎯 Pro Sensi Maker (All Models, RAM & Playstyle)</h3>
+                <p>Apna phone model, RAM, aur playstyle select karein—brand touch-sampling aur low-end safe DPI (&lt;450) ke mutabik exact values milengi.</p>
+                
+                <div class="input-grid">
                     <div class="input-group">
-                        <label for="baseNameInput">Your gaming name:</label>
-                        <input type="text" id="baseNameInput" placeholder="Enter name (e.g. TUFAN)" value="TUFAN" maxlength="20">
+                        <label>1. Select Your Device (All Phone Models):</label>
+                        <select id="makerModelSelect">
+                            <optgroup label="Xiaomi / Redmi / POCO">
+                                <option value="Redmi 9A / 9C / 10A / 12C" data-brand="xiaomi" data-tier="entry">Redmi 9A / 9C / 10A / 12C</option>
+                                <option value="Redmi Note 8 / Note 9 / Note 10" data-brand="xiaomi" data-tier="mid">Redmi Note 8 / Note 9 / Note 10</option>
+                                <option value="Redmi Note 10 Pro / 11 Pro / 12 Pro" data-brand="xiaomi" data-tier="mid">Redmi Note 10 Pro / 11 Pro / 12 Pro</option>
+                                <option value="Redmi Note 13 / 13 Pro+ / 14" data-brand="xiaomi" data-tier="upper">Redmi Note 13 / 13 Pro+ / 14</option>
+                                <option value="POCO C3 / C55 / M3 / M4 Pro" data-brand="xiaomi" data-tier="entry">POCO C3 / C55 / M3 / M4 Pro</option>
+                                <option value="POCO X3 Pro / X4 Pro / X5 Pro / X6 Pro" data-brand="xiaomi" data-tier="upper">POCO X3 Pro / X4 Pro / X5 Pro / X6 Pro</option>
+                                <option value="POCO F3 / F4 / F5 / F6" data-brand="xiaomi" data-tier="flagship">POCO F3 / F4 / F5 / F6</option>
+                                <option value="Xiaomi 12 / 13 / 14 Ultra" data-brand="xiaomi" data-tier="flagship">Xiaomi 12 / 13 / 14 Ultra</option>
+                            </optgroup>
+                            <optgroup label="Apple iPhone (iOS)">
+                                <option value="iPhone 7 / 8 / SE (2020/2022)" data-brand="apple" data-tier="mid">iPhone 7 / 8 / SE (2020/2022)</option>
+                                <option value="iPhone X / XR / XS Max" data-brand="apple" data-tier="upper">iPhone X / XR / XS Max</option>
+                                <option value="iPhone 11 / 11 Pro / 11 Pro Max" data-brand="apple" data-tier="upper">iPhone 11 / 11 Pro / 11 Pro Max</option>
+                                <option value="iPhone 12 / 12 Mini / 12 Pro Max" data-brand="apple" data-tier="flagship">iPhone 12 / 12 Mini / 12 Pro Max</option>
+                                <option value="iPhone 13 / 13 Pro / 13 Pro Max" data-brand="apple" data-tier="flagship">iPhone 13 / 13 Pro / 13 Pro Max</option>
+                                <option value="iPhone 14 / 14 Pro / 14 Pro Max" data-brand="apple" data-tier="flagship">iPhone 14 / 14 Pro / 14 Pro Max</option>
+                                <option value="iPhone 15 / 15 Pro / 16 Pro Max" data-brand="apple" data-tier="flagship">iPhone 15 / 15 Pro / 16 Pro Max</option>
+                            </optgroup>
+                            <optgroup label="Samsung Galaxy">
+                                <option value="Samsung Galaxy A12 / A13 / A14 / A15" data-brand="samsung" data-tier="entry">Samsung Galaxy A12 / A13 / A14 / A15</option>
+                                <option value="Samsung Galaxy A32 / A52 / A54 / A55" data-brand="samsung" data-tier="mid">Samsung Galaxy A32 / A52 / A54 / A55</option>
+                                <option value="Samsung Galaxy M14 / M34 / F54" data-brand="samsung" data-tier="mid">Samsung Galaxy M14 / M34 / F54</option>
+                                <option value="Samsung Galaxy S20 FE / S21 FE" data-brand="samsung" data-tier="upper">Samsung Galaxy S20 FE / S21 FE</option>
+                                <option value="Samsung Galaxy S22 / S23 / S24 Ultra" data-brand="samsung" data-tier="flagship">Samsung Galaxy S22 / S23 / S24 Ultra</option>
+                            </optgroup>
+                            <optgroup label="OnePlus & Realme">
+                                <option value="OnePlus Nord CE 2 / CE 3 / Nord 3" data-brand="oneplus" data-tier="upper">OnePlus Nord CE 2 / CE 3 / Nord 3</option>
+                                <option value="OnePlus 9R / 10R / 11R / 12R" data-brand="oneplus" data-tier="flagship">OnePlus 9R / 10R / 11R / 12R</option>
+                                <option value="Realme C21 / C35 / C53 / C55" data-brand="realme" data-tier="entry">Realme C21 / C35 / C53 / C55</option>
+                                <option value="Realme Narzo 30 / 50 / 60 / 70 Pro" data-brand="realme" data-tier="mid">Realme Narzo 30 / 50 / 60 / 70 Pro</option>
+                                <option value="Realme 9 Pro+ / 10 Pro+ / 11 Pro+ / 12 Pro+" data-brand="realme" data-tier="upper">Realme 9 Pro+ / 10 Pro+ / 11 Pro+ / 12 Pro+</option>
+                                <option value="Realme GT Neo 2 / Neo 3 / GT 6" data-brand="realme" data-tier="flagship">Realme GT Neo 2 / Neo 3 / GT 6</option>
+                            </optgroup>
+                            <optgroup label="Vivo / iQOO / OPPO">
+                                <option value="Vivo Y16 / Y20 / Y21 / Y36" data-brand="vivo" data-tier="entry">Vivo Y16 / Y20 / Y21 / Y36</option>
+                                <option value="Vivo T1 / T2 / T3 Pro / V29 Pro" data-brand="vivo" data-tier="upper">Vivo T1 / T2 / T3 Pro / V29 Pro</option>
+                                <option value="iQOO Z6 / Z7 / Z9 / Neo 6 / Neo 7 / Neo 9 Pro" data-brand="iqoo" data-tier="flagship">iQOO Z6 / Z7 / Z9 / Neo 6 / Neo 7 / Neo 9 Pro</option>
+                                <option value="OPPO A16 / A54 / A78 / F21 Pro" data-brand="oppo" data-tier="entry">OPPO A16 / A54 / A78 / F21 Pro</option>
+                                <option value="OPPO Reno 8 / Reno 10 / Reno 11 Pro" data-brand="oppo" data-tier="upper">OPPO Reno 8 / Reno 10 / Reno 11 Pro</option>
+                            </optgroup>
+                            <optgroup label="Infinix / Tecno / Motorola / Gaming">
+                                <option value="Infinix Hot 12 / Hot 30 / Note 30 / GT 10 Pro" data-brand="infinix" data-tier="mid">Infinix Hot 12 / Hot 30 / Note 30 / GT 10 Pro</option>
+                                <option value="Tecno Spark 10 / Camon 20 / Pova 5 Pro" data-brand="tecno" data-tier="mid">Tecno Spark 10 / Camon 20 / Pova 5 Pro</option>
+                                <option value="Motorola G54 / G84 / Edge 40 Neo" data-brand="moto" data-tier="mid">Motorola G54 / G84 / Edge 40 Neo</option>
+                                <option value="ASUS ROG Phone 5 / 6 / 7 / 8" data-brand="gaming" data-tier="flagship">ASUS ROG Phone 5 / 6 / 7 / 8</option>
+                                <option value="Nubia RedMagic 7 / 8 / 9 Pro" data-brand="gaming" data-tier="flagship">Nubia RedMagic 7 / 8 / 9 Pro</option>
+                            </optgroup>
+                        </select>
                     </div>
-                    <button type="button" class="cyber-btn" onclick="generateNicknames()">✨ GENERATE STYLISH FONTS</button>
-                    <div class="nick-toolbar">
-                        <span id="nickCount" aria-live="polite">Showing sample names</span>
-                        <button type="button" id="loadMoreBtn" class="load-more-btn hidden" onclick="loadMoreNicknames()">Load more</button>
-                    </div>
-                    <div class="nick-results-container" id="nickResults" aria-live="polite">
-                        <button type="button" class="nick-item" onclick="copyNick(this)">꧁༺ 𝖅𝖃 𝕿𝖀𝕱𝕬𝕹 ༻꧂</button>
-                        <button type="button" class="nick-item" onclick="copyNick(this)">⚡ 𝓩𝓧 𝐓𝐔𝐅𝐀𝐍 ⚡</button>
-                        <button type="button" class="nick-item" onclick="copyNick(this)">王 乙𝗫 𝗧𝗨𝗙𝗔𝗡 王</button>
+
+                    <div class="input-group">
+                        <label>2. Select Your RAM:</label>
+                        <select id="makerRam">
+                            <option value="2">2 GB RAM</option>
+                            <option value="3">3 GB RAM</option>
+                            <option value="4">4 GB RAM</option>
+                            <option value="6">6 GB RAM</option>
+                            <option value="8" selected>8 GB RAM</option>
+                            <option value="12">12 GB RAM</option>
+                        </select>
                     </div>
                 </div>
-            </section>
-        </main>
+
+                <div class="input-group">
+                    <label>3. Select Playstyle Mode:</label>
+                    <select id="makerPlaystyle">
+                        <option value="headshot_onetap">Headshot One-Tap (M1887 / Desert Eagle)</option>
+                        <option value="br_cs_allrounder">BR + CS (All Rounder Balanced)</option>
+                        <option value="no_recoil">No Recoil (SMG / AR Zero Shake)</option>
+                    </select>
+                </div>
+
+                <button class="cyber-btn btn-3d" onclick="generateCustomSensi()">⚡ GENERATE PRO CONFIG</button>
+
+                <div id="makerResult" class="result-box hidden">
+                    <div id="makerDeviceTitle" class="fire-tip" style="margin-bottom:12px;">Config Generated Successfully!</div>
+                    <div class="res-grid">
+                        <div class="res-card"><span>General</span><strong id="mGen">98</strong></div>
+                        <div class="res-card"><span>Red Dot</span><strong id="mRed">95</strong></div>
+                        <div class="res-card"><span>2X Scope</span><strong id="m2x">93</strong></div>
+                        <div class="res-card"><span>4X Scope</span><strong id="m4x">90</strong></div>
+                        <div class="res-card"><span>AWM Scope</span><strong id="mAwm">75</strong></div>
+                        <div class="res-card accent"><span id="mDpiLabel">Safe DPI</span><strong id="mDpi">430</strong></div>
+                    </div>
+                    <p id="makerNote" style="font-size:0.8rem; color:var(--text-dim); margin:8px 0 0 0; text-align:center;"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 4: CUSTOM HUD ANALYZER (HONEST GEOMETRY & ASPECT-RATIO CALCULATOR) -->
+        <section id="hudscanner" class="tab-content">
+            <div class="panel-box">
+                <h3>📸 Custom HUD Layout & Drag Calculator</h3>
+                <p>Gallery se apna HUD screenshot select karein aur apni finger claw style chunein. Yeh tool image ke real resolution, aspect ratio, aur aapke grip style ke base par optimal Fire Button size aur drag sensitivity calculate karta hai (note: browser in-game button icons ko OCR se read nahi karta).</p>
+                
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label>1. Select HUD Screenshot from Gallery:</label>
+                        <label class="file-upload-btn btn-3d" style="padding:11px;">
+                            📁 Choose Screenshot
+                            <input type="file" id="hudFileInput" accept="image/*" onchange="previewHudImage(event)" style="display:none;">
+                        </label>
+                    </div>
+                    <div class="input-group">
+                        <label>2. Your Finger Claw Grip:</label>
+                        <select id="hudGripSelect">
+                            <option value="2finger">2-Finger Thumb (Classic Drag)</option>
+                            <option value="3finger" selected>3-Finger Claw (Quick Switch + One-Tap)</option>
+                            <option value="4finger">4-Finger Claw (Pro Movement + Fast Gloo)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="hudPreviewContainer" class="hidden" style="margin-bottom:15px; text-align:center;">
+                    <div class="hud-scan-wrapper">
+                        <img id="hudPreviewImg" src="" alt="HUD Preview">
+                        <div id="hudLaser" class="scan-laser hidden"></div>
+                    </div>
+                    <p id="hudImgMeta" style="font-size:0.8rem; color:var(--neon-cyan); margin-top:6px;">HUD Screenshot Ready!</p>
+                </div>
+
+                <button class="cyber-btn btn-3d" onclick="analyzeHudScreenshot()">🔍 CALCULATE HUD DRAG & SENSI</button>
+
+                <div id="hudResultBox" class="result-box hidden" style="margin-top:15px;">
+                    <div id="hudAnalysisSummary" class="fire-tip" style="margin-bottom:12px; background:rgba(0,243,255,0.1); border-color:var(--neon-cyan); color:var(--neon-cyan);">
+                        🎯 HUD SCREEN GEOMETRY & GRIP CALIBRATED!
+                    </div>
+                    <div class="res-grid">
+                        <div class="res-card"><span>General</span><strong id="hGen">98</strong></div>
+                        <div class="res-card"><span>Red Dot</span><strong id="hRed">95</strong></div>
+                        <div class="res-card"><span>2X Scope</span><strong id="h2x">92</strong></div>
+                        <div class="res-card"><span>4X Scope</span><strong id="h4x">89</strong></div>
+                        <div class="res-card"><span>Fire Button</span><strong id="hFireBtn">44%</strong></div>
+                        <div class="res-card accent"><span>Drag Zone</span><strong id="hDragZone">Lower-Right</strong></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 5: 10,000+ NICKNAMES GENERATOR -->
+        <section id="nicknames" class="tab-content">
+            <div class="panel-box">
+                <h3>🔥 10,000+ Unique Nickname Generator</h3>
+                <p>Har naam ke 10,000+ unique 3D esports typography combinations generate aur ek click par copy karein.</p>
+                
+                <div class="input-group">
+                    <input type="text" id="baseNameInput" placeholder="Enter name (e.g. TUFAN)" value="TUFAN" oninput="generateNicknames()">
+                </div>
+                
+                <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                    <button class="cyber-btn btn-3d" style="flex:1; min-width:160px;" onclick="generateNicknames()">✨ GENERATE NEW STYLES</button>
+                    <button class="cyber-btn btn-3d" style="flex:1; min-width:160px; background:linear-gradient(135deg,#ff007f,#7b00ff);" onclick="loadMoreNicknames()">➕ LOAD MORE (10K+)</button>
+                </div>
+
+                <p id="nickCounterText" style="font-size:0.8rem; color:var(--neon-cyan); margin-top:10px; margin-bottom:4px;">Showing 30 of 10,000+ unique combinations</p>
+                <div class="nick-results-container" id="nickResults"></div>
+            </div>
+        </section>
 
         <footer class="hub-footer">
-            <p>Designed for ZX TUFAN | Premium Neon Gaming Hub</p>
+            <p>Designed for ZX TUFAN (UID: 2910340190) | 3D Royal Neon Engine V4.1</p>
         </footer>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
