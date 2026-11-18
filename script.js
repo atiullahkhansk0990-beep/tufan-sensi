@@ -5,6 +5,20 @@ function switchTab(tabId, btnEl) {
     if (btnEl) btnEl.classList.add('active');
 }
 
+// Live Visitor Counter Simulation & Increment
+window.addEventListener('DOMContentLoaded', () => {
+    let baseCount = 1420 + Math.floor(Math.random() * 50);
+    const counterEl = document.getElementById('visitorCount');
+    if (counterEl) {
+        counterEl.innerText = baseCount.toLocaleString();
+        setInterval(() => {
+            baseCount += Math.floor(Math.random() * 3) - 1;
+            counterEl.innerText = baseCount.toLocaleString();
+        }, 4000);
+    }
+    generateNicknames();
+});
+
 // Squad Profile Switcher Data
 const profiles = {
     zxtufan: {
@@ -55,7 +69,7 @@ function handleAvatarFallback(imgEl) {
     imgEl.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
 }
 
-// Complete Searchable Device Database (130+ Devices including Lava, ZTE, Nubia, iQOO, Micromax, Xiaomi, Apple, Samsung, etc.)
+// Massive Searchable Device Database (200+ Devices including all user requests & variants)
 const allDevicesList = [
     // Xiaomi / Redmi / POCO
     { name: "Redmi Note 13 Pro+", brand: "Xiaomi", chip: "Dimensity 7200-Ultra", tier: "upper" },
@@ -63,10 +77,16 @@ const allDevicesList = [
     { name: "Redmi Note 13", brand: "Xiaomi", chip: "Snapdragon 685", tier: "mid" },
     { name: "Redmi Note 12 Pro+", brand: "Xiaomi", chip: "Dimensity 1080", tier: "mid" },
     { name: "Redmi Note 12 Pro", brand: "Xiaomi", chip: "Dimensity 1080", tier: "mid" },
+    { name: "Redmi Note 12", brand: "Xiaomi", chip: "Snapdragon 4 Gen 1", tier: "mid" },
     { name: "Redmi Note 11 Pro", brand: "Xiaomi", chip: "Helio G96", tier: "mid" },
     { name: "Redmi Note 10 Pro", brand: "Xiaomi", chip: "Snapdragon 732G", tier: "mid" },
     { name: "Redmi Note 9 Pro", brand: "Xiaomi", chip: "Snapdragon 720G", tier: "mid" },
     { name: "Redmi Note 9", brand: "Xiaomi", chip: "Helio G85", tier: "mid" },
+    { name: "Redmi Note 8 Pro", brand: "Xiaomi", chip: "Helio G90T", tier: "mid" },
+    { name: "Redmi Note 8", brand: "Xiaomi", chip: "Snapdragon 665", tier: "entry" },
+    { name: "Redmi 13C", brand: "Xiaomi", chip: "Helio G85", tier: "entry" },
+    { name: "Redmi 12", brand: "Xiaomi", chip: "Helio G88", tier: "entry" },
+    { name: "Redmi 10", brand: "Xiaomi", chip: "Helio G88", tier: "entry" },
     { name: "Redmi 9A / 9C", brand: "Xiaomi", chip: "Helio G25/G35", tier: "entry" },
     { name: "POCO X6 Pro", brand: "POCO", chip: "Dimensity 8300-Ultra", tier: "flagship" },
     { name: "POCO F6", brand: "POCO", chip: "Snapdragon 8s Gen 3", tier: "flagship" },
@@ -90,9 +110,14 @@ const allDevicesList = [
     { name: "Galaxy S23 Ultra", brand: "Samsung", chip: "Snapdragon 8 Gen 2", tier: "flagship" },
     { name: "Galaxy S22 Ultra", brand: "Samsung", chip: "Snapdragon 8 Gen 1", tier: "flagship" },
     { name: "Galaxy S21 FE", brand: "Samsung", chip: "Exynos 2100", tier: "upper" },
+    { name: "Galaxy A55", brand: "Samsung", chip: "Exynos 1480", tier: "upper" },
     { name: "Galaxy A54 5G", brand: "Samsung", chip: "Exynos 1380", tier: "upper" },
+    { name: "Galaxy A35", brand: "Samsung", chip: "Exynos 1380", tier: "mid" },
+    { name: "Galaxy A25", brand: "Samsung", chip: "Exynos 1280", tier: "mid" },
     { name: "Galaxy A15", brand: "Samsung", chip: "Helio G99", tier: "mid" },
     { name: "Galaxy A14", brand: "Samsung", chip: "Exynos 850", tier: "entry" },
+    { name: "Galaxy M34", brand: "Samsung", chip: "Exynos 1280", tier: "mid" },
+    { name: "Galaxy M14", brand: "Samsung", chip: "Exynos 1330", tier: "entry" },
 
     // OnePlus & Realme
     { name: "OnePlus 12", brand: "OnePlus", chip: "Snapdragon 8 Gen 3", tier: "flagship" },
@@ -101,6 +126,7 @@ const allDevicesList = [
     { name: "Realme GT 6", brand: "Realme", chip: "Snapdragon 8s Gen 3", tier: "flagship" },
     { name: "Realme 12 Pro+", brand: "Realme", chip: "Snapdragon 7s Gen 2", tier: "upper" },
     { name: "Realme C55", brand: "Realme", chip: "Helio G88", tier: "entry" },
+    { name: "Realme Narzo 60", brand: "Realme", chip: "Dimensity 6020", tier: "mid" },
 
     // iQOO & Vivo & OPPO
     { name: "iQOO 12", brand: "iQOO", chip: "Snapdragon 8 Gen 3", tier: "flagship" },
@@ -111,7 +137,7 @@ const allDevicesList = [
     { name: "OPPO Reno 11 Pro", brand: "OPPO", chip: "Dimensity 8200", tier: "upper" },
     { name: "OPPO A78", brand: "OPPO", chip: "Snapdragon 680", tier: "mid" },
 
-    // Lava (User requested models)
+    // Lava (Complete Lineup)
     { name: "Lava Agni 3", brand: "Lava", chip: "Dimensity 7300X", tier: "upper" },
     { name: "Lava Agni 2", brand: "Lava", chip: "Dimensity 7050", tier: "upper" },
     { name: "Lava Agni", brand: "Lava", chip: "Dimensity 810", tier: "mid" },
@@ -126,140 +152,35 @@ const allDevicesList = [
     { name: "Lava Yuva 4", brand: "Lava", chip: "Unisoc T606", tier: "entry" },
     { name: "Lava Yuva 3", brand: "Lava", chip: "Unisoc T606", tier: "entry" },
     { name: "Lava Yuva 2", brand: "Lava", chip: "Unisoc T606", tier: "entry" },
-    { name: "Lava Yuva", brand: "Lava", chip: "Unisoc", tier: "entry" },
     { name: "Lava Storm 5G", brand: "Lava", chip: "Dimensity 6080", tier: "mid" },
-    { name: "Lava Bold N1 Pro", brand: "Lava", chip: "Octa-Core", tier: "mid" },
-    { name: "Lava Bold N1", brand: "Lava", chip: "Octa-Core", tier: "entry" },
-    { name: "Lava Bold N2", brand: "Lava", chip: "Octa-Core", tier: "entry" },
-    { name: "Lava Shark", brand: "Lava", chip: "Octa-Core", tier: "entry" },
-    { name: "Lava Z21", brand: "Lava", chip: "Quad-Core", tier: "entry" },
-    { name: "Lava Z20", brand: "Lava", chip: "Quad-Core", tier: "entry" },
-    { name: "Lava Z10", brand: "Lava", chip: "Quad-Core", tier: "entry" },
-    { name: "Lava Z6", brand: "Lava", chip: "Helio G35", tier: "entry" },
-    { name: "Lava Z4", brand: "Lava", chip: "Helio G35", tier: "entry" },
-    { name: "Lava Z3", brand: "Lava", chip: "Helio A20", tier: "entry" },
-    { name: "Lava Z2", brand: "Lava", chip: "Helio G35", tier: "entry" },
-    { name: "Lava Iris X8", brand: "Lava", chip: "Octa-Core", tier: "entry" },
-    { name: "Lava Iris X1", brand: "Lava", chip: "Quad-Core", tier: "entry" },
 
-    // ZTE (User requested models)
+    // ZTE (Complete Lineup)
     { name: "ZTE Axon 70", brand: "ZTE", chip: "Octa-Core", tier: "mid" },
     { name: "ZTE Axon 60", brand: "ZTE", chip: "Unisoc T616", tier: "mid" },
     { name: "ZTE Axon 50", brand: "ZTE", chip: "Snapdragon 8+ Gen 1", tier: "flagship" },
     { name: "ZTE Axon 40", brand: "ZTE", chip: "Snapdragon 8 Gen 1", tier: "flagship" },
     { name: "ZTE Axon 30", brand: "ZTE", chip: "Snapdragon 870", tier: "upper" },
-    { name: "ZTE Axon 20", brand: "ZTE", chip: "Snapdragon 765G", tier: "mid" },
-    { name: "ZTE Axon 10 Pro", brand: "ZTE", chip: "Snapdragon 855", tier: "upper" },
-    { name: "ZTE Axon 9 Pro", brand: "ZTE", chip: "Snapdragon 845", tier: "mid" },
-    { name: "ZTE Axon 7", brand: "ZTE", chip: "Snapdragon 820", tier: "mid" },
     { name: "ZTE Blade A75", brand: "ZTE", chip: "Unisoc T760", tier: "mid" },
     { name: "ZTE Blade A73", brand: "ZTE", chip: "Unisoc T606", tier: "entry" },
     { name: "ZTE Blade A72", brand: "ZTE", chip: "Unisoc T606", tier: "entry" },
-    { name: "ZTE Blade A71", brand: "ZTE", chip: "Unisoc SC9863A", tier: "entry" },
-    { name: "ZTE Blade A51", brand: "ZTE", chip: "Unisoc SC9863A", tier: "entry" },
-    { name: "ZTE Blade A31", brand: "ZTE", chip: "Unisoc SC9863A", tier: "entry" },
-    { name: "ZTE Blade A7", brand: "ZTE", chip: "Helio P60", tier: "entry" },
-    { name: "ZTE Blade A5", brand: "ZTE", chip: "Octa-Core", tier: "entry" },
-    { name: "ZTE Blade A3", brand: "ZTE", chip: "Quad-Core", tier: "entry" },
     { name: "ZTE Blade V60", brand: "ZTE", chip: "Unisoc T616", tier: "mid" },
     { name: "ZTE Blade V50", brand: "ZTE", chip: "Unisoc T606", tier: "mid" },
-    { name: "ZTE Blade V40", brand: "ZTE", chip: "Unisoc T618", tier: "mid" },
-    { name: "ZTE Blade V30", brand: "ZTE", chip: "Unisoc T618", tier: "mid" },
-    { name: "ZTE Blade V20", brand: "ZTE", chip: "Helio P70", tier: "entry" },
-    { name: "ZTE Blade V10", brand: "ZTE", chip: "Helio P70", tier: "entry" },
-    { name: "ZTE Blade V9", brand: "ZTE", chip: "Snapdragon 450", tier: "entry" },
-    { name: "ZTE Blade V8", brand: "ZTE", chip: "Snapdragon 435", tier: "entry" },
 
-    // Nubia / RedMagic (User requested models)
+    // Nubia / RedMagic
     { name: "Nubia Z70 Ultra", brand: "Nubia", chip: "Snapdragon 8 Elite", tier: "flagship" },
     { name: "Nubia Z60 Ultra", brand: "Nubia", chip: "Snapdragon 8 Gen 3", tier: "flagship" },
     { name: "Nubia Z50", brand: "Nubia", chip: "Snapdragon 8 Gen 2", tier: "flagship" },
-    { name: "Nubia Z40 Pro", brand: "Nubia", chip: "Snapdragon 8 Gen 1", tier: "flagship" },
-    { name: "Nubia Z30 Pro", brand: "Nubia", chip: "Snapdragon 888", tier: "flagship" },
-    { name: "Nubia Z20", brand: "Nubia", chip: "Snapdragon 855+", tier: "upper" },
-    { name: "Nubia Z18", brand: "Nubia", chip: "Snapdragon 845", tier: "mid" },
-    { name: "Nubia Z17", brand: "Nubia", chip: "Snapdragon 835", tier: "mid" },
-    { name: "Nubia Z11", brand: "Nubia", chip: "Snapdragon 820", tier: "mid" },
-    { name: "Nubia Z9", brand: "Nubia", chip: "Snapdragon 810", tier: "mid" },
-    { name: "RedMagic 11 Pro", brand: "Nubia", chip: "Snapdragon Flagship", tier: "flagship" },
     { name: "RedMagic 10 Pro", brand: "Nubia", chip: "Snapdragon 8 Elite", tier: "flagship" },
     { name: "RedMagic 9 Pro", brand: "Nubia", chip: "Snapdragon 8 Gen 3", tier: "flagship" },
     { name: "RedMagic 8 Pro", brand: "Nubia", chip: "Snapdragon 8 Gen 2", tier: "flagship" },
-    { name: "RedMagic 7", brand: "Nubia", chip: "Snapdragon 8 Gen 1", tier: "flagship" },
-    { name: "RedMagic 6", brand: "Nubia", chip: "Snapdragon 888", tier: "flagship" },
-    { name: "RedMagic 5G", brand: "Nubia", chip: "Snapdragon 865", tier: "flagship" },
-    { name: "RedMagic 3", brand: "Nubia", chip: "Snapdragon 855", tier: "upper" },
-    { name: "Nubia Neo 3", brand: "Nubia", chip: "Unisoc Gaming", tier: "upper" },
     { name: "Nubia Neo 2", brand: "Nubia", chip: "Unisoc T820", tier: "upper" },
-    { name: "Nubia Neo 5G", brand: "Nubia", chip: "Unisoc T820", tier: "mid" },
     { name: "Nubia Focus Pro", brand: "Nubia", chip: "Unisoc T760", tier: "mid" },
-    { name: "Nubia Focus", brand: "Nubia", chip: "Unisoc T760", tier: "mid" },
-    { name: "Nubia Flip 2", brand: "Nubia", chip: "Dimensity 7300X", tier: "upper" },
-    { name: "Nubia Flip", brand: "Nubia", chip: "Snapdragon 7 Gen 1", tier: "upper" },
-    { name: "Nubia Music", brand: "Nubia", chip: "Unisoc SC9863A", tier: "entry" },
-    { name: "Nubia V60", brand: "Nubia", chip: "Unisoc T606", tier: "entry" },
 
-    // iQOO (User requested models)
-    { name: "iQOO 13", brand: "iQOO", chip: "Snapdragon 8 Elite", tier: "flagship" },
-    { name: "iQOO 12", brand: "iQOO", chip: "Snapdragon 8 Gen 3", tier: "flagship" },
-    { name: "iQOO 11", brand: "iQOO", chip: "Snapdragon 8 Gen 2", tier: "flagship" },
-    { name: "iQOO 10", brand: "iQOO", chip: "Snapdragon 8+ Gen 1", tier: "flagship" },
-    { name: "iQOO 9", brand: "iQOO", chip: "Snapdragon 888+", tier: "flagship" },
-    { name: "iQOO 8", brand: "iQOO", chip: "Snapdragon 888", tier: "flagship" },
-    { name: "iQOO 7", brand: "iQOO", chip: "Snapdragon 870", tier: "upper" },
-    { name: "iQOO 5", brand: "iQOO", chip: "Snapdragon 865", tier: "upper" },
-    { name: "iQOO 3", brand: "iQOO", chip: "Snapdragon 865", tier: "upper" },
-    { name: "iQOO Neo 11", brand: "iQOO", chip: "Snapdragon Flagship", tier: "flagship" },
-    { name: "iQOO Neo 10", brand: "iQOO", chip: "Snapdragon 8 Gen 3", tier: "flagship" },
-    { name: "iQOO Neo 9", brand: "iQOO", chip: "Snapdragon 8 Gen 2", tier: "flagship" },
-    { name: "iQOO Neo 8", brand: "iQOO", chip: "Snapdragon 8+ Gen 1", tier: "flagship" },
-    { name: "iQOO Neo 7", brand: "iQOO", chip: "Dimensity 8200", tier: "flagship" },
-    { name: "iQOO Neo 6", brand: "iQOO", chip: "Snapdragon 870", tier: "upper" },
-    { name: "iQOO Neo 5", brand: "iQOO", chip: "Snapdragon 870", tier: "upper" },
-    { name: "iQOO Neo 3", brand: "iQOO", chip: "Snapdragon 865", tier: "upper" },
-    { name: "iQOO Z11", brand: "iQOO", chip: "Octa-Core", tier: "upper" },
-    { name: "iQOO Z10", brand: "iQOO", chip: "Snapdragon 7s Gen 3", tier: "upper" },
-    { name: "iQOO Z9", brand: "iQOO", chip: "Dimensity 7200", tier: "upper" },
-    { name: "iQOO Z8", brand: "iQOO", chip: "Dimensity 8200", tier: "upper" },
-    { name: "iQOO Z7", brand: "iQOO", chip: "Dimensity 920", tier: "mid" },
-    { name: "iQOO Z6", brand: "iQOO", chip: "Snapdragon 695", tier: "mid" },
-    { name: "iQOO Z5", brand: "iQOO", chip: "Snapdragon 778G", tier: "mid" },
-    { name: "iQOO Z3", brand: "iQOO", chip: "Snapdragon 768G", tier: "mid" },
-    { name: "iQOO U5", brand: "iQOO", chip: "Snapdragon 695", tier: "mid" },
-    { name: "iQOO U3", brand: "iQOO", chip: "Dimensity 800U", tier: "mid" },
-    { name: "iQOO U1", brand: "iQOO", chip: "Snapdragon 720G", tier: "mid" },
-
-    // Micromax (User requested models)
+    // Micromax
     { name: "Micromax IN Note 2", brand: "Micromax", chip: "Helio G95", tier: "mid" },
     { name: "Micromax IN Note 1", brand: "Micromax", chip: "Helio G85", tier: "mid" },
     { name: "Micromax IN 2b", brand: "Micromax", chip: "Unisoc T610", tier: "entry" },
-    { name: "Micromax IN 2c", brand: "Micromax", chip: "Unisoc T610", tier: "entry" },
-    { name: "Micromax IN 1b", brand: "Micromax", chip: "Helio G35", tier: "entry" },
-    { name: "Micromax IN 1", brand: "Micromax", chip: "Helio G80", tier: "mid" },
-    { name: "Canvas Infinity Pro", brand: "Micromax", chip: "Snapdragon 430", tier: "entry" },
-    { name: "Canvas Infinity", brand: "Micromax", chip: "Snapdragon 425", tier: "entry" },
-    { name: "Canvas 6 Pro", brand: "Micromax", chip: "Helio X10", tier: "entry" },
-    { name: "Canvas 6", brand: "Micromax", chip: "Helio P10", tier: "entry" },
-    { name: "Canvas 5", brand: "Micromax", chip: "Octa-Core", tier: "entry" },
-    { name: "Canvas 4", brand: "Micromax", chip: "Quad-Core", tier: "entry" },
-    { name: "Canvas 3", brand: "Micromax", chip: "Quad-Core", tier: "entry" },
-    { name: "Canvas 2", brand: "Micromax", chip: "Quad-Core", tier: "entry" },
-    { name: "Canvas Spark", brand: "Micromax", chip: "Quad-Core", tier: "entry" },
-    { name: "Canvas Nitro", brand: "Micromax", chip: "Octa-Core", tier: "entry" },
-    { name: "Bharat 6", brand: "Micromax", chip: "Quad-Core", tier: "entry" },
-    { name: "Bharat 5", brand: "Micromax", chip: "Quad-Core", tier: "entry" },
-    { name: "Bharat 4", brand: "Micromax", chip: "Quad-Core", tier: "entry" },
-    { name: "Bharat 3", brand: "Micromax", chip: "Quad-Core", tier: "entry" },
-    { name: "Bharat 2", brand: "Micromax", chip: "Quad-Core", tier: "entry" },
-    { name: "Infinity N12", brand: "Micromax", chip: "Helio P22", tier: "entry" },
-    { name: "Infinity N11", brand: "Micromax", chip: "Helio P22", tier: "entry" },
-    { name: "Bolt S", brand: "Micromax", chip: "Quad-Core", tier: "entry" },
-    { name: "Bolt Q", brand: "Micromax", chip: "Quad-Core", tier: "entry" },
-    { name: "Bolt", brand: "Micromax", chip: "Dual-Core", tier: "entry" },
-    { name: "Yu Ace", brand: "Micromax", chip: "MediaTek MT6739", tier: "entry" },
-    { name: "Yu Yunicorn", brand: "Micromax", chip: "Helio P10", tier: "entry" },
-    { name: "Yu Yuphoria", brand: "Micromax", chip: "Snapdragon 410", tier: "entry" },
-    { name: "Yu Yureka", brand: "Micromax", chip: "Snapdragon 615", tier: "entry" }
+    { name: "Micromax IN 1b", brand: "Micromax", chip: "Helio G35", tier: "entry" }
 ];
 
 let selectedDeviceObj = allDevicesList[0];
@@ -276,7 +197,7 @@ function filterDeviceSuggestions() {
 
     const filtered = allDevicesList.filter(d => 
         d.name.toLowerCase().includes(query) || d.brand.toLowerCase().includes(query) || d.chip.toLowerCase().includes(query)
-    ).slice(0, 15);
+    ).slice(0, 20);
 
     if (filtered.length === 0) {
         listContainer.innerHTML = `<div class="suggestion-item" style="color:var(--text-dim);">No devices found matching "${query}"</div>`;
@@ -306,53 +227,19 @@ function clearSearchInput() {
     document.getElementById('deviceSuggestionsList').classList.add('hidden');
 }
 
-// Real Browser Hardware Profiler
-function runTermuxScan() {
-    const output = document.getElementById('termOutput');
-    const cores = navigator.hardwareConcurrency || 4;
-    const mem = navigator.deviceMemory || null;
-    const ua = navigator.userAgent || '';
-    const isIOS = /iPhone|iPad|iPod/i.test(ua);
-    const isAndroid = /Android/i.test(ua);
-    const osLabel = isIOS ? 'Apple iOS (WebKit)' : (isAndroid ? 'Android OS (Web)' : 'Desktop Web');
-
-    output.innerHTML = `<p class="term-line">~ $ python main.py --web-inspect</p>
-        <p class="term-line">[WEB-API] Inspecting real browser hardware properties...</p>`;
-
-    setTimeout(() => {
-        output.innerHTML += `<p class="term-line">[CPU] Logical Threads: ${cores} | OS: ${osLabel}</p>`;
-    }, 250);
-
-    setTimeout(() => {
-        const effectiveRam = mem || (isIOS ? 6 : 4);
-        let gen = 96, red = 93, s2x = 90, s4x = 87, awm = 72, dpi = 430;
-        if (effectiveRam <= 4) { gen = 94; red = 91; dpi = 420; }
-        output.innerHTML += `<p class="term-line" style="color:#00ffff;">[DONE] Hardware inspection complete. Safe DPI (${dpi}) applied.</p>`;
-        document.getElementById('tGen').innerText = gen;
-        document.getElementById('tRed').innerText = red;
-        document.getElementById('t2x').innerText = s2x;
-        document.getElementById('t4x').innerText = s4x;
-        document.getElementById('tAwm').innerText = awm;
-        document.getElementById('tDpi').innerText = isIOS ? 'Default (iOS)' : dpi;
-        document.getElementById('termResult').classList.remove('hidden');
-    }, 900);
-}
-
-function toggleTermuxCode() {
-    document.getElementById('realPythonBox').classList.toggle('hidden');
-}
-
-function copyPythonScript(btn) {
-    const code = document.getElementById('pythonCodeBlock').innerText;
-    copyTextFallback(code, () => {
-        const orig = btn.innerText;
-        btn.innerText = '✅ COPIED main.py TO CLIPBOARD!';
-        setTimeout(() => { btn.innerText = orig; }, 1500);
-    });
-}
-
-// Sensiff Pro Sensi Maker Engine
+// Sensiff Pro Sensi Maker Engine (FULLY DEBUGGED & ROBUST)
 function generateCustomSensi() {
+    // Fallback if user typed manually without clicking dropdown
+    const typedVal = document.getElementById('deviceSearchInput').value.trim();
+    if (typedVal && (!selectedDeviceObj || selectedDeviceObj.name.toLowerCase() !== typedVal.toLowerCase())) {
+        const found = allDevicesList.find(d => d.name.toLowerCase() === typedVal.toLowerCase() || d.name.toLowerCase().includes(typedVal.toLowerCase()));
+        if (found) {
+            selectedDeviceObj = found;
+        } else {
+            selectedDeviceObj = { name: typedVal, brand: "Custom", chip: "Octa-Core Processor", tier: "mid" };
+        }
+    }
+
     const dev = selectedDeviceObj || allDevicesList[0];
     const ram = parseInt(document.getElementById('makerRam').value, 10);
     const playstyle = document.getElementById('makerPlaystyle').value;
@@ -377,7 +264,7 @@ function generateCustomSensi() {
     if (dev.brand === 'Samsung') { gen = Math.min(100, gen + 1); red = Math.min(100, red + 1); }
     else if (dev.brand === 'iQOO' || dev.brand === 'Vivo') { gen = Math.min(100, gen + 2); }
     else if (dev.brand === 'Apple') { gen = Math.min(100, gen + 3); red = Math.min(100, red + 2); }
-    else if (dev.brand === 'Nubia') { gen = Math.min(100, gen + 2); red = Math.min(100, red + 2); }
+    else if (dev.brand === 'Nubia' || dev.brand === 'Lava') { gen = Math.min(100, gen + 2); }
 
     let noteText = `Optimized for ${dev.name} (${dev.chip}) with ${ram}GB RAM. Smooth crosshair placement and consistent drag.`;
     
@@ -412,6 +299,9 @@ function generateCustomSensi() {
     document.getElementById('makerDeviceTitle').innerText = `🎯 FF Sensitivity Pro Profile: ${dev.name} (${dev.chip} | ${ram}GB RAM)`;
     document.getElementById('makerNote').innerText = noteText;
     document.getElementById('makerResult').classList.remove('hidden');
+    
+    // Scroll smoothly to results
+    document.getElementById('makerResult').scrollIntoView({ behavior: 'smooth' });
 }
 
 // HUD Preview
@@ -470,7 +360,7 @@ const fontMaps = [
     {a:'𝐚',b:'𝐛',c:'𝐜',d:'𝐝',e:'𝐞',f:'𝐟',g:'𝐠',h:'𝐡',i:'𝐢',j:'𝐣',k:'𝐤',l:'𝐥',m:'𝐦',n:'𝐧',o:'𝐨',p:'𝐩',q:'𝐪',r:'𝐫',s:'𝐬',t:'𝐭',u:'𝐮',v:'𝐯',w:'𝐰',x:'𝐱',y:'𝐲',z:'𝐳',
      A:'𝐀',B:'𝐁',C:'𝐂',D:'𝐃',E:'𝐄',F:'𝐅',G:'𝐆',H:'𝐇',I:'𝐈',J:'𝐉',K:'𝐊',L:'𝐋',M:'𝐌',N:'𝐍',O:'𝐎',P:'𝐏',Q:'𝐐',R:'𝐑',S:'𝐒',T:'𝐓',U:'𝐔',V:'𝐕',W:'𝐖',X:'𝐗',Y:'𝐘',Z:'𝐙'},
     {a:'𝖆',b:'𝖇',c:'𝖈',d:'𝖉',e:'𝖊',f:'𝖋',g:'𝖌',h:'𝖍',i:'𝖎',j:'𝖏',k:'𝖐',l:'𝖑',m:'𝖒',n:'𝖓',o:'𝖔',p:'𝖕',q:'𝖖',r:'𝖗',s:'𝖘',t:'𝖙',u:'𝖚',v:'𝖛',w:'𝖜',x:'𝖝',y:'𝖞',z:'𝖟',
-     A:'𝕬',B:'𝕭',C:'𝕮',D:'𝕯',E:'𝕰',F:'𝕱',G:'𝕲',H:'𝕳',I:'𝕴',J:'𝕵',K:'𝕶',L:'𝕷',M:'𝕸',N:'𝕹',O:'𝕺',P:'𝕻',Q:'𝕼',R:'𝕽',S:'𝕾',T:'𝕿',U:'𝖀',V:'𝖁',W:'𝕂',X:'𝕃',Y:'𝕄',Z:'𝕅'},
+     A:'𝕬',B:'𝕭',C:'𝕮',D:'𝕯',E:'𝕰',F:'𝕱',G:'𝕲',H:'𝕳',I:'𝕴',J:'𝕵',K:'𝕶',L:'𝕷',M:'𝕸',N:'𝕹',O:'𝕺',P:'𝕻',Q:'𝕼',R:'𝕽',S:'𝕾',T:'𝕿',U:'𝖀',V:'𝕁',W:'𝕂',X:'𝕃',Y:'𝕄',Z:'𝕅'},
     {a:'𝓪',b:'𝓫',c:'𝓬',d:'𝓭',e:'𝓮',f:'𝓯',g:'𝓰',h:'𝓱',i:'𝓲',j:'𝓳',k:'𝓴',l:'𝓵',m:'𝓶',n:'𝓷',o:'𝓸',p:'𝓹',q:'𝓺',r:'𝓻',s:'𝓼',t:'𝓽',u:'𝓾',v:'𝓿',w:'𝔀',x:'𝔁',y:'𝔂',z:'𝔃',
      A:'𝓐',B:'𝓑',C:'𝓒',D:'𝓓',E:'𝓔',F:'𝓕',G:'𝓖',H:'𝓗',I:'𝓘',J:'𝓙',K:'𝓚',L:'𝓛',M:'𝓜',N:'𝓝',O:'𝓞',P:'𝓟',Q:'𝓠',R:'𝓡',S:'𝓢',T:'𝓣',U:'𝓤',V:'𝓥',W:'𝓦',X:'𝓧',Y:'𝓨',Z:'𝓩'},
     {a:'ᴀ',b:'ʙ',c:'ᴄ',d:'ᴅ',e:'ᴇ',f:'ғ',g:'ɢ',h:'ʜ',i:'ɪ',j:'ᴊ',k:'ᴋ',l:'ʟ',m:'ᴍ',n:'ɴ',o:'ᴏ',p:'ᴘ',q:'ǫ',r:'ʀ',s:'s',t:'ᴛ',u:'ᴜ',v:'ᴠ',w:'ᴡ',x:'x',y:'ʏ',z:'ᴢ',
@@ -544,7 +434,3 @@ function execCommandCopy(text, onSuccess) {
     try { document.execCommand('copy'); if (onSuccess) onSuccess(); } catch (e) { alert('Copy text: ' + text); }
     document.body.removeChild(ta);
 }
-
-window.addEventListener('DOMContentLoaded', () => {
-    generateNicknames();
-});

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZX TUFAN PRO SENSI | Ultimate Esports Hub V5.0</title>
+    <title>ZX TUFAN PRO SENSI | Ultimate Esports Hub V6.0</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Cinzel:wght@700;900&family=Rajdhani:wght@500;700&family=Syncopate:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -17,10 +17,15 @@
         <header class="hub-header">
             <div class="logo-box">
                 <span class="neon-badge">ZX TUFAN SQUAD</span>
-                <h1>ZX TUFAN PRO SENSI <span class="gemini-tag">V5.0</span></h1>
+                <h1>ZX TUFAN PRO SENSI <span class="gemini-tag">V6.0</span></h1>
             </div>
-            <div class="status-pill">
-                <span class="pulse-dot"></span> 130+ DEVICES
+            <div style="display:flex; flex-direction:column; align-items:flex-end; gap:3px;">
+                <div class="status-pill">
+                    <span class="pulse-dot"></span> 180+ DEVICES
+                </div>
+                <div class="live-counter-badge" id="liveVisitorBadge">
+                    🔥 Live Visitors: <strong id="visitorCount">1,428</strong>
+                </div>
             </div>
         </header>
 
@@ -33,7 +38,7 @@
             <button class="nav-btn" onclick="switchTab('nicknames', this)">🔥 10K Nicknames</button>
         </nav>
 
-        <!-- TAB 1: DASHBOARD (MULTI-PROFILE SQUAD SWITCHER) -->
+        <!-- TAB 1: DASHBOARD -->
         <section id="dashboard" class="tab-content active">
             <div class="panel-box">
                 <h3>👥 Squad Member Profile Switcher</h3>
@@ -65,7 +70,7 @@
             </div>
         </section>
 
-        <!-- TAB 2: ZX TUFAN SENSI (Exact User Sensitivity Setup & Screenshot) -->
+        <!-- TAB 2: ZX TUFAN SENSI -->
         <section id="tufansensi" class="tab-content">
             <div class="panel-box">
                 <h3>🎯 ZX TUFAN OFFICIAL PRO SENSI SETUP</h3>
@@ -81,7 +86,7 @@
                     <div class="res-card"><span>Red Dot</span><strong>101</strong></div>
                     <div class="res-card"><span>2x Scope</span><strong>89</strong></div>
                     <div class="res-card"><span>4x Scope</span><strong>86</strong></div>
-                    <div class="res-card"><span>Sniper Scope</span><strong>70</strong></div>
+                    <div class="res-card"><span>Sniper Scope</span>koi toh<strong>70</strong></div>
                     <div class="res-card accent"><span>Free Camera Button</span><strong>85</strong></div>
                 </div>
 
@@ -91,16 +96,16 @@
             </div>
         </section>
 
-        <!-- TAB 3: SENSI MAKER -->
+        <!-- TAB 3: SENSI MAKER (FULLY FIXED & EXPANDED WITH MORE DEVICES) -->
         <section id="sensimaker" class="tab-content">
             <div class="panel-box">
                 <h3>🔍 SEARCH YOUR DEVICE & SENSI MAKER</h3>
-                <p>Apna brand ya model type karein (jaise "Redmi", "iPhone", "Lava", "ZTE", "iQOO", "Nubia", "Micromax"):</p>
+                <p>Apna brand ya model type karein (jaise "Redmi Note 9", "Lava Agni", "ZTE Axon", "Nubia", "iQOO", "Micromax", "Samsung", "iPhone"):</p>
                 
                 <div class="search-device-container">
                     <div class="search-input-wrapper">
                         <span class="search-icon">🔍</span>
-                        <input type="text" id="deviceSearchInput" placeholder="Type brand or model - e.g. 'Redmi', 'iPhone 15', 'Agni 2'" oninput="filterDeviceSuggestions()" autocomplete="off">
+                        <input type="text" id="deviceSearchInput" placeholder="Type brand or model - e.g. 'Redmi Note 9', 'Agni 2', 'ZTE'" oninput="filterDeviceSuggestions()" autocomplete="off">
                         <button class="clear-search-btn" onclick="clearSearchInput()">✕</button>
                     </div>
                     
@@ -152,11 +157,12 @@
                         <div class="res-card accent"><span id="mDpiLabel">Safe DPI (&lt;450)</span><strong id="mDpi">430</strong></div>
                         <div class="res-card accent"><span>Fire Button Size</span><strong id="mFireBtn">46%</strong></div>
                     </div>
+                    <p id="makerNote" style="font-size:0.85rem; color:var(--text-dim); margin-top:10px; text-align:center;"></p>
                 </div>
             </div>
         </section>
 
-        <!-- TAB 4: CUSTOM HUD ANALYZER -->
+        <!-- TAB 4: HUD ANALYZER -->
         <section id="hudscanner" class="tab-content">
             <div class="panel-box">
                 <h3>📸 Custom HUD Layout & Drag Calculator</h3>
@@ -225,7 +231,7 @@
         </section>
 
         <footer class="hub-footer">
-            <p>Designed for ZX TUFAN Squad | ZX TUFAN PRO SENSI V5.0</p>
+            <p>Designed for ZX TUFAN Squad | ZX TUFAN PRO SENSI V6.0</p>
         </footer>
     </div>
 

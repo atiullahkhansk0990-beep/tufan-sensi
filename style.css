@@ -259,3 +259,16 @@ body {
     display: flex; justify-content: space-between; align-items: center;
 }
 .selected-device-banner strong { color: var(--neon-cyan); font-family: 'Orbitron', sans-serif; }
+
+.live-counter-badge {
+    background: rgba(255, 107, 0, 0.15);
+    border: 1px solid #ff6b00;
+    color: #ff6b00;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    font-family: 'Orbitron', sans-serif;
+    box-shadow: 0 0 10px rgba(255,107,0,0.3);
+}
+.live-counter-badge strong { color: #fff; }
